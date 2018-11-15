@@ -11,12 +11,18 @@ import { ProfilePageModule } from '../profile/profile.module';
 import { PermissionsPageModule }  from '../permissions/permissions.module';
 import { ComparisonPageModule } from '../comparison/comparison.module';
 import { SettingsPageModule } from '../settings/settings.module';
+import { AddpermissionPageModule } from '../permissions/addpermission/addpermission.module'
+import { RevokepermissionPageModule } from '../permissions/revokepermission/revokepermission.module';
+import { PermissioncodePageModule }  from '../permissions/permissioncode/permissioncode.module';
 
 import { QuestionPage } from '../question/question.page';
 import { ProfilePage } from '../profile/profile.page';
 import { PermissionsPage }  from '../permissions/permissions.page';
 import { SettingsPage } from '../settings/settings.page';
 import { ComparisonPage } from '../comparison/comparison.page';
+import { AddpermissionPage } from '../permissions/addpermission/addpermission.page';
+import { RevokepermissionPage } from '../permissions/revokepermission/revokepermission.page';
+import { PermissioncodePage } from '../permissions/permissioncode/permissioncode.page';
 
 const routes: Routes = [
   {
@@ -37,6 +43,21 @@ const routes: Routes = [
         path: 'permissions',
         outlet: 'permissions',
         component: PermissionsPage,
+      },
+      {
+        path: 'addpermission',
+        outlet: 'permissions',
+        component: AddpermissionPage,
+      },
+      {
+        path: 'revokepermission',
+        outlet: 'permissions',
+        component: RevokepermissionPage,
+      },
+      {
+        path: 'permissioncode',
+        outlet: 'permissions',
+        component: PermissioncodePage,
       },
       {
         path: 'comparison',
@@ -68,6 +89,9 @@ const routes: Routes = [
     PermissionsPageModule,
     ComparisonPageModule,
     SettingsPageModule,
+    AddpermissionPageModule,
+    RevokepermissionPageModule,
+    PermissioncodePageModule,
     RouterModule.forChild(routes),    
   ],
   declarations: [TabPage],

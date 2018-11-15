@@ -11,8 +11,12 @@ const routes: Routes = [
   // { path: 'question', loadChildren: './question/question.module#QuestionPageModule' },
   // { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   // { path: 'permissions', loadChildren: './permissions/permissions.module#PermissionsPageModule' },
-  { path: '', loadChildren: './tab/tab.module#TabPageModule' },
+
   { path: 'answer', loadChildren: './answer/answer.module#AnswerPageModule' },
+  { path: '', loadChildren: './tab/tab.module#TabPageModule' },
+  // { path: 'addpermission', loadChildren: './permissions/addpermission/addpermission.module#AddpermissionPageModule' },
+  // { path: 'revokepermission', loadChildren: './permissions/revokepermission/revokepermission.module#RevokepermissionPageModule' },
+  // { path: 'permissioncode', loadChildren: './permissions/permissioncode/permissioncode.module#PermissioncodePageModule' },
   // { path: 'comparison', loadChildren: './comparison/comparison.module#ComparisonPageModule' },
   // { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
 ];

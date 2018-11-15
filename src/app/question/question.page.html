@@ -1,41 +1,10 @@
 <ion-content >
-  <div padding text-center item-text>
-    <ion-item  text-center item-text style="width: 60%">
-      <h1 style="color: white">Questions</h1>
-      <ion-icon name="text" style="color: white"></ion-icon>
-    </ion-item>
-  </div>
-  
-  <div  text-center item-text 
-       style="background-color: #353535;  width: 100%; height: 150px; padding: 52px 15px">
-      <ion-label style="color: white; font-size: 21px; font-weight: bold;">FEEL CRUSHED BY SETBACK?</ion-label>
-     
-  </div>
-  <div  text-center item-text style="margin-top: -15px">
-     <ion-button  
-     style="font-size: 15px;
-     font-weight: bold;
-     margin: auto;
-     border-radius: 10px;
-     --background: white;
-     --background-activated: unset;
-     color: #353535;">previous question</ion-button>
+  <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 45px">
+    <ion-label>Questions</ion-label>
+    <ion-icon name="md-help"></ion-icon>
   </div>
 
-  <div style="margin-top: 200px;">
-    <ion-grid>
-      <ion-row>
-        <ion-col >
-          <button  href="/" >Agree</button>
-        </ion-col>
-        <ion-col>
-          <button  href="/"  >Neither</button>
-        </ion-col>
-        <ion-col>
-          <button  href="/"  >Disagree</button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <div padding style="padding-top: 100px">
+      <ion-button size="large" (click)="start()" expand="block" color="dark" >{{this.text}}</ion-button>
   </div>
-  
 </ion-content>

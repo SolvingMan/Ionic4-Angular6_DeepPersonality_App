@@ -1,0 +1,20 @@
+ion-content {
+    --ion-background-color: #2B2A2F;
+}
+
+ion-item {
+    --inner-border-width: 0px;
+}
+button {
+    color: white;
+    height: 115px;
+    width: 100%;
+    outline: unset;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #353535;
+    :focus {
+        background-color:#fafafa 
+    }
+}

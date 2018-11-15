@@ -1,23 +1,22 @@
 <ion-content padding>
-  <div padding text-center item-text>
-    <ion-item text-center item-text style="width: 60%">
-      <h1 style="color: white">Profile</h1>
-      <ion-icon name="people" style="color: white"></ion-icon>
-    </ion-item>
-  </div>
-  <div>
-    <ion-segment [(ngModel)]="viewMode">
-      <ion-segment-button value="list">
-        <ion-label>Most Positive</ion-label>
+    <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 45px">
+        <ion-label style="font-size: 30px; color: white; font-weight: bold;">Profile</ion-label>
+        <ion-icon style="font-size: 42px; color: #C2F5FE;" name="md-person"></ion-icon>
+    </div>
 
-      </ion-segment-button>
-      <ion-segment-button value="map">
-        <ion-label>Most Negative</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-  </div>
+    <div padding-top>
+      <ion-segment [(ngModel)]="viewMode">
+        <ion-segment-button value="positive">
+          <ion-label>Most Positive</ion-label>
 
-  <div padding-top style="border-radius: 10px">
+        </ion-segment-button>
+        <ion-segment-button value="negative">
+          <ion-label>Most Negative</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+  <div *ngIf="viewMode === 'positive'" padding-top style="border-radius: 10px">
     <ion-item expand="block" color="dark" style="">
         <ion-label>Happiness</ion-label>
         <h6 style="margin-right: 10px;">12cs</h6>
@@ -47,6 +46,41 @@
         <h6 style="margin-right: 10px;">18cs</h6>
         <h6 style="margin-right: 10px; padding: 3px;  background-color: black; border-radius: 4px;">10%</h6>
     </ion-item>
-    
   </div>
+
+  <div *ngIf="viewMode === 'negative'" padding-top style="border-radius: 10px">
+      <ion-item expand="block" color="dark" style="">
+          <ion-label>Self Acceptance</ion-label>
+          <h6 style="margin-right: 10px;">14cs</h6>
+          <h6 style="margin-right: 10px; padding: 3px;  background-color: black; border-radius: 4px;">23%</h6>
+      </ion-item>
+  
+      <ion-item expand="block" color="dark" style="">
+          <ion-label>Locus of Control Internal</ion-label>
+          <h6 style="margin-right: 10px;">18cs</h6>
+          <h6 style="margin-right: 10px; padding: 3px;  background-color: black; border-radius: 4px;">21%</h6>
+      </ion-item>
+  
+      <ion-item expand="block" color="dark" style="">
+          <ion-label>Hope Optimism</ion-label>
+          <h6 style="margin-right: 10px;">12cs</h6>
+          <h6 style="margin-right: 10px; padding: 3px;  background-color: black; border-radius: 4px;">18%</h6>
+      </ion-item>
+  
+      <ion-item expand="block" color="dark" style="">
+          <ion-label>Happiness</ion-label>
+          <h6 style="margin-right: 10px;">20cs</h6>
+          <h6 style="margin-right: 10px; padding: 3px;  background-color: black; border-radius: 4px;">15%</h6>
+      </ion-item>
+  
+      <ion-item expand="block" color="dark" style="">
+          <ion-label>Security</ion-label>
+          <h6 style="margin-right: 10px;">18cs</h6>
+          <h6 style="margin-right: 10px; padding: 3px;  background-color: black; border-radius: 4px;">10%</h6>
+      </ion-item>
+    </div>
+  
+
+
+
 </ion-content>

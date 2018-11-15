@@ -1,0 +1,86 @@
+<ion-content padding>
+    <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 45px">
+        <ion-label style="font-size: 30px; color: white; font-weight: bold;">Profile</ion-label>
+        <ion-icon style="font-size: 42px; color: #C2F5FE;" name="md-person"></ion-icon>
+    </div>
+
+    <div padding-top>
+      <ion-segment [(ngModel)]="viewMode">
+        <ion-segment-button value="positive">
+          <ion-label>Data Shared</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="negative">
+          <ion-label>ALPHABET</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+  <div *ngIf="viewMode === 'positive'" padding-top style="border-radius: 10px">
+      <ion-item expand="block" color="dark">
+          <ion-label>User123</ion-label>
+          <ion-select [(ngModel)]="frequency">
+              <ion-select-option value="value1">Yes</ion-select-option>
+              <ion-select-option value="value2">No</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item expand="block" color="dark">
+          <ion-label>User123</ion-label>
+          <ion-select [(ngModel)]="frequency">
+              <ion-select-option value="value1">Yes</ion-select-option>
+              <ion-select-option value="value2">No</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item expand="block" color="dark">
+          <ion-label>User123</ion-label>
+          <ion-select [(ngModel)]="frequency">
+              <ion-select-option value="value1">Yes</ion-select-option>
+              <ion-select-option value="value2">No</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item expand="block" color="dark">
+          <ion-label>User123</ion-label>
+          <ion-select [(ngModel)]="frequency">
+              <ion-select-option value="value1">Yes</ion-select-option>
+              <ion-select-option value="value2">No</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+  </div>
+
+  <div *ngIf="viewMode === 'negative'" padding-top style="border-radius: 10px">
+      <ion-item expand="block" color="dark">
+          <ion-label>User123</ion-label>
+          <ion-select [(ngModel)]="frequency">
+              <ion-select-option value="value1">Yes</ion-select-option>
+              <ion-select-option value="value2">No</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item expand="block" color="dark">
+          <ion-label>User123</ion-label>
+          <ion-select [(ngModel)]="frequency">
+              <ion-select-option value="value1">Yes</ion-select-option>
+              <ion-select-option value="value2">No</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item expand="block" color="dark">
+          <ion-label>User123</ion-label>
+          <ion-select [(ngModel)]="frequency">
+              <ion-select-option value="value1">Yes</ion-select-option>
+              <ion-select-option value="value2">No</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item expand="block" color="dark">
+          <ion-label>User123</ion-label>
+          <ion-select [(ngModel)]="frequency">
+              <ion-select-option value="value1">Yes</ion-select-option>
+              <ion-select-option value="value2">No</ion-select-option>
+          </ion-select>
+      </ion-item>
+    </div>
+</ion-content>

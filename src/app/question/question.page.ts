@@ -9,36 +9,11 @@ import { Router , ActivatedRoute} from '@angular/router';
 export class QuestionPage implements OnInit {
  questions : any[];
  state: any = 0;
+ text: string;
 
   constructor(private router: Router, private activateRoute: ActivatedRoute) {
-    
-    this.questions =[
-      {
-        text: "this is  test?" 
-      },
-      {
-        text: "this is  test1?" 
-      },  
-      {
-        text: "this is  test2?" 
-      },  
-      {
-        text: "this is  test3?" 
-      },  
-      {
-        text: "this is  test4?" 
-      },  
-      {
-        text: "this is  test5?" 
-      },  
-      {
-        text: "this is  test6?" 
-      },  
-      {
-        text: "this is  test7?" 
-      },
-    ]
-   }
+   this.text = "Start answer";  
+  }
 
   ngOnInit() {
     // this.activateRoute.queryParams.subscribe((index) => {
@@ -47,7 +22,15 @@ export class QuestionPage implements OnInit {
     // })
   }
   nextquestion() {
-    this.router.navigateByUrl("/profile");
+    this.router.navigateByUrl("/answer");
   }
-
+  start(){
+    console.log("start event is here")
+    if (this.text==="Start answer") {
+      this.text = "Continue answer";
+    }
+    else {
+      this.text = "Start answer"
+    }
+  }
 }
