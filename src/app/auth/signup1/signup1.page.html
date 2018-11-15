@@ -1,0 +1,71 @@
+
+<ion-content padding >
+    <ion-grid>
+        <ion-row >
+            <ion-col  size-md="6" size-lg="5" size-xs="12">
+                <div text-center item-center>
+                  <ion-img  style="width: 50px; height: 50px; object-fit: cover; margin: auto" src="www/assets/icon/favicon.png"></ion-img>
+                  <h6 style="color:white">Deep Personality</h6>
+                </div>
+                <div padding text-center >
+                    <h5 style="color:white; font-weight: bold">Set some options before start</h5>
+                </div>
+
+                <div padding-top>
+                    <ion-item expand="block" color="dark">
+                        <ion-label>WITH NOTIFICATION</ion-label>
+                        <ion-select [(ngModel)]="notification" >
+                            <ion-select-option value="yes">YES</ion-select-option>
+                            <ion-select-option value="no">NO</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                </div>
+                <div padding-top>
+                    <ion-item  *ngIf="notification==='yes'" expand="block" color="dark">
+                            <ion-label>NOTIFICATION SETTING</ion-label>
+                            <ion-select [(ngModel)]="notifi_setting">
+                                <ion-select-option value="casual">CASUAL</ion-select-option>
+                                <ion-select-option value="custom">CUSTOM</ion-select-option>
+                            </ion-select>
+                    </ion-item>
+                </div>
+                <div padding-top>
+                <ion-item  *ngIf="notification!=='empty'" expand="block" color="dark">
+                        <ion-label>SELECT A BATCH SIZE</ion-label>
+                        <ion-select [(ngModel)]="batch">
+                            <ion-select-option value="30">30</ion-select-option>
+                            <ion-select-option value="50">50</ion-select-option>
+                            <ion-select-option value="70">70</ion-select-option>
+                        </ion-select>
+                </ion-item>
+                </div>
+                <div padding-top>
+                <ion-item  *ngIf="notifi_setting==='custom'&&notification==='yes'" expand="block" color="dark">
+                    <ion-label>SELECT A FREQUENCY</ion-label>
+                    <ion-select [(ngModel)]="frequency">
+                        <ion-select-option value="value1">Yes</ion-select-option>
+                        <ion-select-option value="value2">No</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                </div>
+                <div padding-top>
+                <ion-item  *ngIf="notifi_setting==='custom'&&notification==='yes'" expand="block" color="dark">
+                    <ion-label>SELECT START TIME OF DAY</ion-label>
+                    <ion-datetime displayFormat="HH:mm A" [(ngModel)]="start_time"></ion-datetime>
+                </ion-item>
+                </div>
+                <div padding-top>
+                    <ion-item  *ngIf="notifi_setting==='custom'&&notification==='yes'" expand="block" color="dark">
+                        <ion-label>SELECT END TIME OF DAY</ion-label>
+                        <ion-datetime displayFormat="H:mm A" [(ngModel)]="end_time"></ion-datetime>
+                    </ion-item>
+                </div>
+
+                <div padding-top>
+                    <ion-button *ngIf="batch!=='empty'" size="large" href="/signup2" expand="block" color="dark" >SAVE</ion-button>
+                </div>
+
+              </ion-col>
+
+        </ion-row>
+    </ion-grid>

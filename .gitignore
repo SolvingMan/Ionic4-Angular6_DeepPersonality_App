@@ -1,2 +1,5 @@
 /node_modules
-
+/plugins
+/platforms
+/resources
+/www

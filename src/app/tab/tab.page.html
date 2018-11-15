@@ -1,0 +1,68 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom" color="dark">
+    <ion-tab-button tab="question" href="/tab/(question:question)">
+      <ion-icon name="md-help"></ion-icon>
+      <ion-label>Questions</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile" href="/tab/(profile:profile)">
+      <ion-icon name="md-person"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="permissions" href="/tab/(permissions:permissions)">
+      <ion-icon name="md-lock"></ion-icon>
+      <ion-label>Permission</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="comparison" href="/tab/(comparison:comparison)">
+      <ion-icon name="md-text"></ion-icon>
+      <ion-label>Comparison</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="settings" href="/tab/(settings:settings)">
+      <ion-icon name="md-settings"></ion-icon>
+      <ion-label>Setting</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+  <ion-tab tab="questions">
+    <ion-router-outlet name="question"></ion-router-outlet>
+  </ion-tab>
+
+  <ion-tab tab="profile">
+    <ion-router-outlet name="profile"></ion-router-outlet>
+  </ion-tab>
+
+  <ion-tab tab="permissions">
+    <ion-router-outlet name="permissions"></ion-router-outlet>
+  </ion-tab>
+
+  <ion-tab tab="comparison">
+    <ion-router-outlet name="comparison"></ion-router-outlet>
+  </ion-tab>
+
+  <ion-tab tab="settings">
+    <ion-router-outlet name="settings"></ion-router-outlet>
+  </ion-tab>
+
+</ion-tabs>
+
+<!-- <ion-tabs>
+  <ion-tab label="Question" icon="text" href="/tab/(question:question)">
+    <ion-router-outlet name="question"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Profile" icon="contact" href="/tab/(profile:profile)">
+    <ion-router-outlet name="profile"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Permission" icon="unlock" href="/tab/(permission:permission)">
+    <ion-router-outlet name="permission"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Comparison" icon="people" href="/tab/(comparison:comparison)">
+    <ion-router-outlet name="comparison"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Settings" icon="md-settings" href="/tab/(settings:settings)">
+    <ion-router-outlet name="settings"></ion-router-outlet>
+  </ion-tab>
+</ion-tabs>
+ -->
