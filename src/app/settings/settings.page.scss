@@ -1,0 +1,24 @@
+ion-content {
+    --ion-background-color: #2B2A2F;
+}
+
+ion-segment-button {
+    // --btn-background: #2B2A2F;
+    // --btn-border-color: white;
+    font-size: unset;
+    // height: 37px;
+    --border-radius: 10px;
+}
+ion-segment {
+    --background-checked: #fafafa;
+    --color: #fafafa;
+    --color-checked: #2B2A2F;
+    --border-color-checked: #fafafa;
+}
+ion-item {
+    --inner-border-width: 0;
+    --border-width: 0 0 1px 0;
+    --border-color: red;
+    border-color: red;
+    --ion-color-shade: #f2f2f2 !important;
+}

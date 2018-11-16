@@ -1,9 +1,52 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>settings</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content padding>
+  <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 15px">
+      <ion-label style="font-size: 30px; color: white; font-weight: bold;">Settings </ion-label>
+      <ion-icon style="font-size: 42px; color: #C2F5FE;" name="md-settings"></ion-icon>
+  </div>
 
+    <div padding>
+        <ion-button size="default" href="" expand="block" color="dark" >NOTIFICATION</ion-button>
+   
+        <ion-button size="default" href="" expand="block" color="dark" >DEMOGRAPHICS</ion-button>
+    </div>
+
+    <div padding>
+        <ion-segment [(ngModel)]="swipe">
+            <ion-segment-button value="swipe">
+                <ion-label>ENABLE SWIPE</ion-label>
+            </ion-segment-button>
+            
+            <ion-segment-button value="button">
+                <ion-label>ENABLE BUTTON</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+    <div padding>
+        <ion-segment [(ngModel)]="theme_type">
+            <ion-segment-button value="static">
+                <ion-label>STATIC THEME</ion-label>
+            </ion-segment-button>
+            
+            <ion-segment-button value="dynamic">
+                <ion-label>DYNAMIC THEME</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    <div padding>
+        <ion-segment [(ngModel)]="theme_color">
+            <ion-segment-button value="light">
+                <ion-label>LIGHT THEME</ion-label>
+            </ion-segment-button>
+            
+            <ion-segment-button value="dark">
+                <ion-label>DARK THEME</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    <div padding>
+        <ion-button size="default" href="" expand="block" color="dark" >SAVE</ion-button>
+    </div>
 </ion-content>

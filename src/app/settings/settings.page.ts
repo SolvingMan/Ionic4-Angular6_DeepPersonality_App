@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
-
-  constructor() { }
+  swipe : string;
+  theme_type : string;
+  theme_color : string;
+  constructor() { 
+    this.swipe = "swipe";
+    this.theme_type = "static";
+    this.theme_color = "light";
+  }
 
   ngOnInit() {
   }

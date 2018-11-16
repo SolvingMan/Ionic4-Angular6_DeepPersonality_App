@@ -1,4 +1,5 @@
-<ion-content padding>
+<ion-content >
+    <div padding>
     <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 45px">
         <ion-label style="font-size: 30px; color: white; font-weight: bold;">Profile</ion-label>
         <ion-icon style="font-size: 42px; color: #C2F5FE;" name="md-person"></ion-icon>
@@ -17,6 +18,14 @@
     </div>
 
   <div *ngIf="viewMode === 'positive'" padding-top style="border-radius: 10px">
+    <div style="background-color: red">
+    <ion-item expand="block" color="dark" style="">
+        <ion-label style="font-size: 14px">trait</ion-label>
+        <h6 style="margin-right: 10px; font-size: 14px">cs</h6>
+        <h6 style="margin-right: 10px;  
+        font-size: 14px; background-color: black; border-radius: 4px; --inner-padding-top: 0px; ">percent</h6>
+    </ion-item>
+
     <ion-item expand="block" color="dark" style="">
         <ion-label>Happiness</ion-label>
         <h6 style="margin-right: 10px;">12cs</h6>
@@ -46,6 +55,8 @@
         <h6 style="margin-right: 10px;">18cs</h6>
         <h6 style="margin-right: 10px; padding: 3px;  background-color: black; border-radius: 4px;">10%</h6>
     </ion-item>
+
+  </div>
   </div>
 
   <div *ngIf="viewMode === 'negative'" padding-top style="border-radius: 10px">
@@ -81,6 +92,6 @@
     </div>
   
 
-
+ </div>
 
 </ion-content>
