@@ -7,32 +7,31 @@
   </div>
   
   <div  text-center item-text 
-       style="background-color: #353535;  width: 100%; height: 150px; padding: 52px 15px">
-      <ion-label style="color: white; font-size: 21px; font-weight: bold;">FEEL CRUSHED BY SETBACK?</ion-label>
+       style="background-color: #353535;  width: 100%; height: 150px; padding: 65px 15px">
+      <ion-label style="color: white; font-size: 21px; font-weight: bold;">{{question}}</ion-label>
      
   </div>
-  <div  text-center item-text style="margin-top: -15px">
+  <div  text-center item-text style="margin-top: -15px"  *ngIf="previous_button===true">
      <ion-button  
-     style="font-size: 15px;
-     font-weight: bold;
-     margin: auto;
-     border-radius: 10px;
-     --background: white;
-     --background-activated: unset;
-     color: #353535;">previous question</ion-button>
+        style="font-size: 15px;
+        font-weight: bold;
+        margin: auto;
+        --background: white;
+        --background-activated: unset;
+        color: #353535;" >previous question</ion-button>
   </div>
 
   <div style="margin-top: 200px;">
     <ion-grid>
       <ion-row>
         <ion-col >
-          <button  href="/" >Agree</button>
+          <button   (click)="nextquestion('agree')" >Agree</button>
         </ion-col>
         <ion-col>
-          <button  href="/"  >Neither</button>
+          <button (click)="nextquestion('neither')"  >Neither</button>
         </ion-col>
         <ion-col>
-          <button  href="/"  >Disagree</button>
+          <button  (click)="nextquestion('disagree')"  >Disagree</button>
         </ion-col>
       </ion-row>
     </ion-grid>

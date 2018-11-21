@@ -15,6 +15,8 @@ const routes: Routes = [
   { path: 'answer', loadChildren: './answer/answer.module#AnswerPageModule' },
   { path: '', loadChildren: './tab/tab.module#TabPageModule' },
   { path: 'usercomparison', loadChildren: './comparison/usercomparison/usercomparison.module#UsercomparisonPageModule' },
+  // { path: 'notification', loadChildren: './settings/notification/notification.module#NotificationPageModule' },
+  // { path: 'demographics', loadChildren: './settings/demographics/demographics.module#DemographicsPageModule' },
   // { path: 'addpermission', loadChildren: './permissions/addpermission/addpermission.module#AddpermissionPageModule' },
   // { path: 'revokepermission', loadChildren: './permissions/revokepermission/revokepermission.module#RevokepermissionPageModule' },
   // { path: 'permissioncode', loadChildren: './permissions/permissioncode/permissioncode.module#PermissioncodePageModule' },

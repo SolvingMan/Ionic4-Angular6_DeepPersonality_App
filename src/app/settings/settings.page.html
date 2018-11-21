@@ -6,24 +6,24 @@
   </div>
 
     <div padding>
-        <ion-button size="default" href="" expand="block" color="dark" >NOTIFICATION</ion-button>
+        <ion-button size="default" href="/tab/(settings:notification)" expand="block" color="dark" >NOTIFICATION</ion-button>
    
-        <ion-button size="default" href="" expand="block" color="dark" >DEMOGRAPHICS</ion-button>
+        <ion-button size="default" href="/tab/(settings:demographics)" expand="block" color="dark" >DEMOGRAPHICS</ion-button>
     </div>
 
     <div padding>
         <ion-segment [(ngModel)]="swipe">
-            <ion-segment-button value="swipe">
+            <ion-segment-button value="enable">
                 <ion-label>ENABLE SWIPE</ion-label>
             </ion-segment-button>
             
-            <ion-segment-button value="button">
+            <ion-segment-button value="disable">
                 <ion-label>ENABLE BUTTON</ion-label>
             </ion-segment-button>
         </ion-segment>
     </div>
     <div padding>
-        <ion-segment [(ngModel)]="theme_type">
+        <ion-segment [(ngModel)]="theme_action">
             <ion-segment-button value="static">
                 <ion-label>STATIC THEME</ion-label>
             </ion-segment-button>
@@ -47,6 +47,6 @@
     </div>
 
     <div padding>
-        <ion-button size="default" href="" expand="block" color="dark" >SAVE</ion-button>
+        <ion-button size="default" expand="block" color="dark" (click)="save()">SAVE</ion-button>
     </div>
 </ion-content>

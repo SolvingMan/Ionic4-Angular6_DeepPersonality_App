@@ -6,13 +6,13 @@
 
     <div padding>
         <div padding color="dark" style="background-color: #232227;  border-radius: 10px; text-align: left; margin-top: 20px">
-            <h2 stacked style="color: white; opacity: 1;">2AD3FEV32</h2>
+            <h2 stacked style="color: white; opacity: 1;">{{permission_code}}</h2>
             <h5 stacked style="font-size: 12px; margin-top: 5px; margin-bottom: 1px; color: white; opacity: 0.6;">your special code</h5>
         </div>
     </div>
 
     <div padding>
-        <ion-button size="large" href="#" expand="block" color="dark" >Generate Code</ion-button>
+        <ion-button size="large" (click)="generate_code()" expand="block" color="dark" >Generate Code</ion-button>
     </div>
 
 </ion-content>

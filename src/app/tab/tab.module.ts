@@ -14,6 +14,9 @@ import { SettingsPageModule } from '../settings/settings.module';
 import { AddpermissionPageModule } from '../permissions/addpermission/addpermission.module'
 import { RevokepermissionPageModule } from '../permissions/revokepermission/revokepermission.module';
 import { PermissioncodePageModule }  from '../permissions/permissioncode/permissioncode.module';
+import { UsercomparisonPageModule } from '../comparison/usercomparison/usercomparison.module';
+import { NotificationPageModule } from '../settings/notification/notification.module';
+import { DemographicsPageModule } from '../settings/demographics/demographics.module';
 
 import { QuestionPage } from '../question/question.page';
 import { ProfilePage } from '../profile/profile.page';
@@ -23,6 +26,9 @@ import { ComparisonPage } from '../comparison/comparison.page';
 import { AddpermissionPage } from '../permissions/addpermission/addpermission.page';
 import { RevokepermissionPage } from '../permissions/revokepermission/revokepermission.page';
 import { PermissioncodePage } from '../permissions/permissioncode/permissioncode.page';
+import { UsercomparisonPage } from '../comparison/usercomparison/usercomparison.page';
+import { DemographicsPage } from '../settings/demographics/demographics.page';
+import { NotificationPage } from '../settings/notification/notification.page';
 
 const routes: Routes = [
   {
@@ -65,9 +71,24 @@ const routes: Routes = [
         component: ComparisonPage,
       },
       {
+        path: 'usercomparison',
+        outlet: 'comparison',
+        component: UsercomparisonPage,
+      },
+      {
         path: 'settings',
         outlet: 'settings',
         component: SettingsPage,
+      },
+      {
+        path: 'notification',
+        outlet: 'settings',
+        component: NotificationPage,
+      },
+      {
+        path: 'demographics',
+        outlet: 'settings',
+        component: DemographicsPage,
       },
 
     ]
@@ -92,6 +113,9 @@ const routes: Routes = [
     AddpermissionPageModule,
     RevokepermissionPageModule,
     PermissioncodePageModule,
+    UsercomparisonPageModule,
+    NotificationPageModule,
+    DemographicsPageModule,
     RouterModule.forChild(routes),    
   ],
   declarations: [TabPage],

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NavController, Datetime } from '@ionic/angular';
+import { UserDataService } from '../provider/user-data.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,11 +11,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
   viewMode: string;
-  constructor() {
+  email : string;
+
+  positive_cs : any[];
+  negative_cs : any[];
+
+  constructor(
+    public router: Router, 
+    private http: HttpClient,
+    public navCtrl: NavController,  
+    public userData: UserDataService
+  ) {
     this.viewMode = "positive";
    }
 
-  ngOnInit() {
+   async ngOnInit() {
+    await this.userData.getUsername().then((username) => {
+      console.log(username);
+      this.email = username;
+    });
+
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json');
+    this.http.get('http://192.168.0.70:8100/api/positive_cs?email='+this.email, {headers: headers}).subscribe(data => {
+      console.log(data);
+      if (data['result'] == 'success') {
+        this.positive_cs = data['person_cs_positive'];
+        this.negative_cs = data['person_cs_negative'];
+
+        // this.question = data['question'].questions;
+      } else {
+        alert("server connection error");
+      }
+    }, 
+    error => {
+    console.log(error);
+    })
+
   }
 
 }

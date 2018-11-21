@@ -8,12 +8,15 @@ ion-segment-button {
     font-size: unset;
     // height: 37px;
     --border-radius: 10px;
+    
 }
 ion-segment {
     --background-checked: #fafafa;
     --color: #fafafa;
     --color-checked: #2B2A2F;
     --border-color-checked: #fafafa;
+    font-size: 12px;
+    font-weight: bold;
 }
 ion-item {
     --inner-border-width: 0;

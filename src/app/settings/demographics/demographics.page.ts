@@ -9,30 +9,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserDataService } from '../../provider/user-data.service';
 
 @Component({
-  selector: 'app-signup2',
-  templateUrl: './signup2.page.html',
-  styleUrls: ['./signup2.page.scss'],
+  selector: 'app-demographics',
+  templateUrl: './demographics.page.html',
+  styleUrls: ['./demographics.page.scss'],
 })
-export class Signup2Page implements OnInit {
-demographics: any;
-countries: any[];
-ages : any [];
-email: string;
-
-selected_age : number;
-selected_country: string;
-selected_residence_country: string;
-gender: string;
-
-
-
-constructor(
+export class DemographicsPage implements OnInit {
+  demographics: any;
+  countries: any[];
+  ages : any [];
+  email: string;
+  
+  selected_age : number;
+  selected_country: string;
+  selected_residence_country: string;
+  gender: string;
+  constructor(
     public router: Router, 
     private alertCtrl: AlertController,  
     public navCtrl: NavController,  
     private http: HttpClient,
     public userData: UserDataService
-) { 
+  ) { 
     this.countries = [
     {
         "name": "Afghanistan",
@@ -1018,42 +1015,55 @@ constructor(
         80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 
         90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 
         100];
-}
+  }
 
-    async ngOnInit() {
-        await this.userData.getUsername().then((username) => {
-        console.log(username);
-        this.email = username;
-        });
-    }
+  async ngOnInit() {
+    await this.userData.getUsername().then((username) => {
+    console.log(username);
+    this.email = username;
+    });
 
-    save() {
-      if (this.gender == undefined || this.selected_age == undefined || this.selected_country == undefined || this.selected_residence_country == undefined) {
-          alert("please insert all setting");
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json');
+    this.http.get('http://192.168.0.70:8100/api/get_user_info?email='+this.email, {headers: headers}).subscribe(data => {
+      console.log(data);
+      if (data['result'] == 'success') {
+        this.selected_age = data['user'].age;
+        this.selected_country = data['user'].country_birth;
+        this.selected_residence_country = data['user'].country_residence;
+        this.gender = data['user'].gender;
+
+      } else {
+        alert("server connection error");
       }
-      else {
-        this.demographics = {
-            "email" : this.email,
-            "country_birth" : this.selected_country, 
-            "country_residence" : this.selected_residence_country,
-            "gender" : this.gender,
-            "age" : this.selected_age
-        };
-        const headers = new HttpHeaders();
-        headers.set('Content-Type', 'application/json');
-        this.http.post('http://192.168.0.70:8100/api/update_demographics',this.demographics, {headers: headers}).subscribe(data => {
-            console.log(data);
-            if (data['result'] == 'success' ) {
-                this.router.navigateByUrl("tab/(question:question)")
-            }
-            else {
-              alert("Already username or email exist");
-            }
-          }, 
-          error => {
-          console.log(error);
-        })
-      }
+    }, 
+    error => {
+    console.log(error);
+    })
+  } 
+  save() {
+    this.demographics = {
+      "email" : this.email,
+      "country_birth" : this.selected_country, 
+      "country_residence" : this.selected_residence_country,
+      "gender" : this.gender,
+      "age" : this.selected_age
+    };
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json');
+    this.http.post('http://192.168.0.70:8100/api/update_demographics',this.demographics, {headers: headers}).subscribe(data => {
+        console.log(data);
+        if (data['result'] == 'success' ) {
+            // this.router.navigateByUrl("tab/(question:question)")
+            alert("updated successfully")
+        }
+        else {
+          alert("Already username or email exist");
+        }
+      }, 
+      error => {
+      console.log(error);
+    })
   }
 
 }

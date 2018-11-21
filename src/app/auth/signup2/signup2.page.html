@@ -1,10 +1,8 @@
 
 <ion-content padding >
-  <ion-grid>
-      <ion-row >
-          <ion-col  size-md="6" size-lg="5" size-xs="12">
+ 
               <div text-center item-center>
-                <ion-img  style="width: 50px; height: 50px; object-fit: cover; margin: auto" src="www/assets/icon/favicon.png"></ion-img>
+                <ion-img  style="width: 50px; height: 50px; object-fit: contain; margin: auto" src="www/assets/icon/icon.png"></ion-img>
                 <h6 style="color:white">Deep Personality</h6>
               </div>
               <div padding-top text-center >
@@ -14,43 +12,40 @@
               <div padding-top>
                   <ion-item expand="block" color="dark">
                       <ion-label>YOUR AGE</ion-label>
-                      <ion-select [(ngModel)]="notification" >
-                          <ion-select-option value="yes">YES</ion-select-option>
-                          <ion-select-option value="no">NO</ion-select-option>
+                      <ion-select [(ngModel)]="selected_age" >
+                          <ion-select-option  *ngFor="let x of this.ages;  let i = index" [value]="x" [selected]="selected">{{x}}</ion-select-option>
+                          <!-- <ion-select-option value="no">NO</ion-select-option> -->
                       </ion-select>
                   </ion-item>
               </div>
               <div padding-top>
                   <ion-item   expand="block" color="dark">
                           <ion-label>COUNTRY OF BIRTH</ion-label>
-                          <ion-select [(ngModel)]="notifi_setting">
-                              <ion-select-option *ngFor="let country of this.countries" [value] = "country.name" [selected]="selected" >{{country.text}}</ion-select-option>
+                          <ion-select [(ngModel)]="selected_country">
+                              <ion-select-option *ngFor="let country of this.countries" [value] = "country.name" [selected]="selected" >{{country.name}}</ion-select-option>
                           </ion-select>
                   </ion-item>
               </div>
               <div padding-top>
-              <ion-item   expand="block" color="dark">
-                      <ion-label>COUNTRY OF RESIDENCE</ion-label>
-                      <ion-select [(ngModel)]="batch">
-                        <ion-select-option *ngFor="let country of this.countries" [value] = "country.name" [selected]="selected" >{{country.text}}</ion-select-option>
-                      </ion-select>
-              </ion-item>
+                <ion-item   expand="block" color="dark">
+                        <ion-label>COUNTRY OF RESIDENCE</ion-label>
+                        <ion-select [(ngModel)]="selected_residence_country">
+                            <ion-select-option *ngFor="let country of this.countries" [value] = "country.name" [selected]="selected" >{{country.name}}</ion-select-option>
+                        </ion-select>
+                </ion-item>
               </div>
               <div padding-top>
-              <ion-item  expand="block" color="dark">
-                  <ion-label>YOUR GENDER</ion-label>
-                  <ion-select [(ngModel)]="frequency">
-                      <ion-select-option value="value1">Yes</ion-select-option>
-                      <ion-select-option value="value2">No</ion-select-option>
-                  </ion-select>
-              </ion-item>
+                <ion-item  expand="block" color="dark">
+                    <ion-label>YOUR GENDER</ion-label>
+                    <ion-select [(ngModel)]="gender">
+                        <ion-select-option value="value1">Male</ion-select-option>
+                        <ion-select-option value="value2">Female</ion-select-option>
+                    </ion-select>
+                </ion-item>
               </div>
             
               <div padding-top>
-                  <ion-button *ngIf="batch!=='empty'" size="large" href="/home" expand="block" color="dark" >SAVE</ion-button>
+                  <ion-button *ngIf="batch!=='empty'" size="large" (click)="save()" expand="block" color="dark" >SAVE</ion-button>
               </div>
 
-            </ion-col>
-
-      </ion-row>
-  </ion-grid>
+</ion-content>
