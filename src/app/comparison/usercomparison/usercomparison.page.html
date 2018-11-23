@@ -1,9 +1,47 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>usercomparison</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
+  <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 45px">
+      <ion-label style="font-size: 30px; color: white; font-weight: bold;">Comparison</ion-label>
+      <ion-icon style="font-size: 42px; color: #C2F5FE;" name="md-text"></ion-icon>
+  </div>
+
+  <div padding-top>
+    <ion-segment [(ngModel)]="viewMode">
+      <ion-segment-button value="similar">
+        <ion-label>MOST SIMILAR</ion-label>
+
+      </ion-segment-button>
+      <ion-segment-button value="different">
+        <ion-label>MOST DIFFERENT</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div *ngIf="viewMode == 'similar'" padding-top style="border-radius: 10px">
+
+      <!-- <ion-item expand="block" color="dark"
+        *ngFor='let trait of this.compare_result; let i = index'
+        detail="true">
+        <ion-label>{{trait.trait}}</ion-label>      
+      </ion-item> -->
+
+      <ion-item expand="block" color="dark" style="" 
+        *ngFor='let trait of this.compare_result; let i = index'>
+        <ion-label style="font-size: 14px">{{trait.trait}}</ion-label>
+        <!-- <h6 style="margin-right: 10px; font-size: 14px">cs</h6> -->
+        <h6 style="margin-right: 10px;  
+        font-size: 0px; background-color: black; border-radius: 4px; --inner-padding-top: 0px; ">percent</h6>
+     </ion-item>  
+  </div>
+
+  <div *ngIf="viewMode == 'different'" padding-top style="border-radius: 10px">
+
+    <ion-item expand="block" color="dark" style="" 
+      *ngFor='let trait of this.compare_result; let i = index'>
+      <ion-label style="font-size: 14px">{{trait.trait}}</ion-label>
+      <!-- <h6 style="margin-right: 10px; font-size: 14px">cs</h6> -->
+      <h6 style="margin-right: 10px;  
+      font-size: 0px; background-color: black; border-radius: 4px; --inner-padding-top: 0px; ">percent</h6>
+   </ion-item>  
+</div>
 
 </ion-content>

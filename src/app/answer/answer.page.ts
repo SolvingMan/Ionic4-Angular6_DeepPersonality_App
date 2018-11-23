@@ -8,7 +8,7 @@ import { JsonPipe } from '@angular/common';
 
 import { NavController, Datetime } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-
+import { IonicSwipeAllModule } from 'ionic-swipe-all';
 @Component({
   selector: 'app-answer',
   templateUrl: './answer.page.html',
@@ -107,11 +107,67 @@ export class AnswerPage implements OnInit {
       } else {
         console.log(this.loading, "loading");
       }
-      clearTimeout(this.timerId);
+      // clearTimeout(this.timerId);
       this.previous_button = true;
-      this.timerId = setTimeout( () => {
-        this.previous_button = false;
-      }, 5000);
+      // this.timerId = setTimeout( () => {
+      //   this.previous_button = false;
+      // }, 5000);
   }
+
+  previous_question() {
+    console.log("previosdu quesitohj")
+      this.previous_button = false;
+      this.question_id = this.question_id -2;
+      const headers = new HttpHeaders();
+      headers.set('Content-Type', 'application/json');
+      this.loading = true;
+      this.http.get('http://192.168.0.70:8100/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer=neither', {headers: headers}).subscribe(data => {
+        console.log(data);
+        if (data['result'] == 'success') {
+          this.question = data['question'].questions
+          this.question_id =  data['question'].id;
+          this.loading = false;
+          this.batch_calculate = this.batch_calculate + 1;
+          this.userData.set_complete_question_id(data['question'].id);
+        } else {
+          this.loading = false;
+          alert("connection error")
+        }
+      }, 
+      error => {
+      console.log(error);
+      this.loading = false;
+      })
+  }
+
+
+  swipeAll(event: any): any {
+    console.log('Swipe All', event);
+}
+
+swipeLeft(event: any): any {
+    console.log('Swipe Left', event);
+}
+
+swipeRight(event: any): any {
+    console.log('Swipe Right', event);
+}
+
+swipeUp(event: any): any {
+    console.log('Swipe Up', event);
+}
+
+swipeDown(event: any): any {
+    console.log('Swipe Down', event);
+} 
+swipe(event) {
+  console.log('Swipe Down', event);
+  if(event.direction === 2) {
+    console.log('Swipe Down', event);
+  }
+  if(event.direction === 4) {
+    console.log('Swipe Dowasdfsan', event);
+  }
+}
 
 }

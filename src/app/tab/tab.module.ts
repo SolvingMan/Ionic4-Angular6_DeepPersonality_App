@@ -71,7 +71,7 @@ const routes: Routes = [
         component: ComparisonPage,
       },
       {
-        path: 'usercomparison',
+        path: 'usercomparison/:index',
         outlet: 'comparison',
         component: UsercomparisonPage,
       },

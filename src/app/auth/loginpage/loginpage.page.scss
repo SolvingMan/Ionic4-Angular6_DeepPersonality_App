@@ -38,6 +38,12 @@ ion-button {
     // -webkit-border-radius: 50px;
 
 }
+.alert-md .alert-message {
+    background: red;
+}
+.alert-wrapper.sc-ion-alert-ios {
+    background: red;
+}
 
 @media (min-width: 240px) and (max-width: 768px) {
     ion-grid {

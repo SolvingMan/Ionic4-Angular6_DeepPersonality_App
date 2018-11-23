@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AnswerPage } from './answer.page';
+import { IonicSwipeAllModule } from 'ionic-swipe-all';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    IonicSwipeAllModule,
     RouterModule.forChild(routes)
   ],
   declarations: [AnswerPage]

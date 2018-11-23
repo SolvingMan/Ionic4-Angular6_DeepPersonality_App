@@ -38,14 +38,14 @@
                 <ion-item  expand="block" color="dark">
                     <ion-label>YOUR GENDER</ion-label>
                     <ion-select [(ngModel)]="gender">
-                        <ion-select-option value="value1">Male</ion-select-option>
-                        <ion-select-option value="value2">Female</ion-select-option>
+                        <ion-select-option value="male">Male</ion-select-option>
+                        <ion-select-option value="female">Female</ion-select-option>
                     </ion-select>
                 </ion-item>
               </div>
             
               <div padding-top>
-                  <ion-button *ngIf="batch!=='empty'" size="large" (click)="save()" expand="block" color="dark" >SAVE</ion-button>
+                  <ion-button  size="large" (click)="save()" expand="block" color="dark" >SAVE</ion-button>
               </div>
 
 </ion-content>

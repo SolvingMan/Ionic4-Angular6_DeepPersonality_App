@@ -16,6 +16,9 @@ export class LoginpagePage implements OnInit {
   email: string;
   password: string;
   user: any;
+
+  title: string;
+
   constructor( 
     public router: Router, 
     private alertCtrl: AlertController,  
@@ -53,7 +56,7 @@ export class LoginpagePage implements OnInit {
           this.router.navigateByUrl("tab/(question:question)");
         }
         else {
-          alert("login failed");
+         this.alertshow();
         }
       }, 
       error => {
@@ -64,6 +67,19 @@ export class LoginpagePage implements OnInit {
 
   loginfailed() {
     console.log("loginfailed function") 
+  }
+
+  async alertshow() {
+    const alert = await this.alertCtrl.create({
+      header: 'Email is not exist',
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }
