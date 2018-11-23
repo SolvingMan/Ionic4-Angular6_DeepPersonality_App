@@ -1,14 +1,15 @@
 
 <ion-content padding>
   <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 15px">
-      <ion-label style="font-size: 30px; color: white; font-weight: bold;">Settings </ion-label>
-      <ion-icon style="font-size: 42px; color: #C2F5FE;" name="md-settings"></ion-icon>
+      <!-- <ion-label style="font-size: 30px; color: white; font-weight: bold;">Settings </ion-label> -->
+      <ion-label class="title">Settings </ion-label>
+      <ion-icon name="md-settings"></ion-icon>
   </div>
 
     <div padding>
-        <ion-button size="default" href="/tab/(settings:notification)" expand="block" color="dark" >NOTIFICATION</ion-button>
+        <ion-button size="default" href="/tab/(settings:notification)" expand="block"  >NOTIFICATION</ion-button>
    
-        <ion-button size="default" href="/tab/(settings:demographics)" expand="block" color="dark" >DEMOGRAPHICS</ion-button>
+        <ion-button size="default" href="/tab/(settings:demographics)" expand="block"  >DEMOGRAPHICS</ion-button>
     </div>
 
     <div padding>
@@ -47,6 +48,6 @@
     </div>
 
     <div padding>
-        <ion-button size="default" expand="block" color="dark" (click)="save()">SAVE</ion-button>
+        <ion-button size="default" expand="block" (click)="save()">SAVE</ion-button>
     </div>
 </ion-content>

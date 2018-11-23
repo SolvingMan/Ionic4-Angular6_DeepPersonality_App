@@ -2,16 +2,16 @@
   <div padding>
       <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 15px">
         <div style="display: grid; text-align: right">  
-          <ion-label style="font-size: 30px; color: white; font-weight: bold;">Settings</ion-label>
-          <ion-label style="font-size: 12px; color: white; font-weight: bold;">Demographics</ion-label>
+          <ion-label class="title">Settings</ion-label>
+          <ion-label>Demographics</ion-label>
         </div>
-          <ion-icon style="font-size: 46px; color: #C2F5FE; margin-left: 5px" name="md-settings"></ion-icon>
+          <ion-icon  name="md-settings"></ion-icon>
       </div>
   </div>
 
   <div >
       <div padding>
-          <ion-item expand="block" color="dark">
+          <ion-item expand="block" >
               <ion-label>YOUR AGE</ion-label>
               <ion-select [(ngModel)]="selected_age" >
                   <ion-select-option  *ngFor="let x of this.ages;  let i = index" [value]="x" [selected]="selected">{{x}}</ion-select-option>
@@ -19,21 +19,21 @@
               </ion-select>
           </ion-item>
 
-          <ion-item   expand="block" color="dark">
+          <ion-item   expand="block">
               <ion-label>COUNTRY OF BIRTH</ion-label>
               <ion-select [(ngModel)]="selected_country">
                   <ion-select-option *ngFor="let country of this.countries" [value] = "country.name" [selected]="selected" >{{country.name}}</ion-select-option>
               </ion-select>
           </ion-item>
 
-          <ion-item   expand="block" color="dark">
+          <ion-item   expand="block" >
               <ion-label>COUNTRY OF RESIDENCE</ion-label>
               <ion-select [(ngModel)]="selected_residence_country">
                 <ion-select-option *ngFor="let country of this.countries" [value] = "country.name" [selected]="selected" >{{country.name}}</ion-select-option>
               </ion-select>
           </ion-item>
 
-          <ion-item  expand="block" color="dark">
+          <ion-item  expand="block" >
               <ion-label>YOUR GENDER</ion-label>
               <ion-select [(ngModel)]="gender">
                   <ion-select-option value="male">Male</ion-select-option>
@@ -43,7 +43,7 @@
       </div>
 
     <div padding>
-      <ion-button (click)= "save()" size="default" expand="block" color="dark" >SAVE</ion-button>
+      <ion-button (click)= "save()" size="default" expand="block"  >SAVE</ion-button>
     </div>
   </div>
 </ion-content>

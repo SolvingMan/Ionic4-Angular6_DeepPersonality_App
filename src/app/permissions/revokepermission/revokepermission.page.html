@@ -3,7 +3,7 @@
         <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 15px">
             <div style="display: grid; text-align: right">  
                 <ion-label class="title">Permissons</ion-label>
-                <ion-label style="font-size: 12px; color: white; font-weight: bold;">revoke permisson</ion-label>
+                <ion-label>revoke permisson</ion-label>
             </div>
             <ion-icon name="unlock"></ion-icon>
         </div>
@@ -21,7 +21,7 @@
         </div>
 
         <div *ngIf="viewMode === 'date'" padding-top style="border-radius: 10px">
-            <ion-item expand="block" color="dark" *ngFor="let user of this.all_handshake;  let i = index">
+            <ion-item expand="block"  *ngFor="let user of this.all_handshake;  let i = index">
                 <ion-label>{{user.name}}</ion-label>
                 <ion-select [(ngModel)]="user.ngmodel_1" (ionChange)="onSelectChange(user.name, user.ngmodel_1, i)">
                     <ion-select-option  
@@ -36,7 +36,7 @@
 
 
         <div *ngIf="viewMode === 'alphabet'" padding-top style="border-radius: 10px">
-            <ion-item expand="block" color="dark" *ngFor="let user of this.all_handshake_sort;  let i = index">
+            <ion-item expand="block" *ngFor="let user of this.all_handshake_sort;  let i = index">
                 <ion-label>{{user.name}}</ion-label>
                 <ion-select [(ngModel)]="user.ngmodel_2" (ionChange)="onSelectChange(user.name, user.ngmodel_2, i)">
                     <ion-select-option  

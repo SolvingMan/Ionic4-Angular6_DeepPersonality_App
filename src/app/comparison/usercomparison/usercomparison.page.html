@@ -1,6 +1,6 @@
 <ion-content padding>
   <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 45px">
-      <ion-label style="font-size: 30px; color: white; font-weight: bold;">Comparison</ion-label>
+      <ion-label class="title">Comparison</ion-label>
       <ion-icon style="font-size: 42px; color: #C2F5FE;" name="md-text"></ion-icon>
   </div>
 
@@ -24,7 +24,7 @@
         <ion-label>{{trait.trait}}</ion-label>      
       </ion-item> -->
 
-      <ion-item expand="block" color="dark" style="" 
+      <ion-item expand="block" 
         *ngFor='let trait of this.compare_result; let i = index'>
         <ion-label style="font-size: 14px">{{trait.trait}}</ion-label>
         <!-- <h6 style="margin-right: 10px; font-size: 14px">cs</h6> -->
@@ -35,7 +35,7 @@
 
   <div *ngIf="viewMode == 'different'" padding-top style="border-radius: 10px">
 
-    <ion-item expand="block" color="dark" style="" 
+    <ion-item expand="block" 
       *ngFor='let trait of this.compare_result; let i = index'>
       <ion-label style="font-size: 14px">{{trait.trait}}</ion-label>
       <!-- <h6 style="margin-right: 10px; font-size: 14px">cs</h6> -->

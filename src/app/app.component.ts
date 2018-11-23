@@ -25,7 +25,7 @@ export class AppComponent {
       { title: 'Clover', theme: 'theme-clover', color:'assets/imgs/388E3C.png' },
       // { title: 'Blueberry', theme: 'theme-blueberry', color:'assets/imgs/1e88e5.png' }
     ];
-    this.themeClass = 'theme-noir';
+    this.themeClass = 'theme-clover';
   }
   
 

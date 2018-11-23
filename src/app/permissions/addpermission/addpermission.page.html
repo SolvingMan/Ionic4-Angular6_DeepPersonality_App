@@ -26,14 +26,12 @@
           <div  style="flex: row" >
               <ion-row>
                   <ion-col col-4> 
-                      <ion-button class="sort_button" >SORT BY ALPHABETA</ion-button>
+                      <button class="sort_button" >SORT BY ALPHABETA</button>
                   </ion-col>
                 
                   <ion-col col-8 style="display: inline-flex;">
-                      <ion-button size="small" expand="block" color="dark" 
-                        style="width: 79px; --height: 18px; font-size: 10px;  --border-radius: 4px; margin-right: 5px; --ion-color-base: #2b2a2f !important" >Select All</ion-button>
-                      <ion-button size="small" expand="block" color="dark" 
-                        style="width: 79px; --height: 18px; font-size: 10px;  --border-radius: 4px; --ion-color-base: #2b2a2f !important" >Deselect All</ion-button>
+                      <button style="margin-right: 5px;" class="select_all">Select All</button>
+                      <button class="select_all" >Deselect All</button>
                   </ion-col>
               </ion-row>
           </div>
@@ -42,15 +40,15 @@
           <div style="margin-top: 20px;">
             <ion-row >
                 <div *ngFor="let trait of this.all_traits;  let i = index"  style="margin: auto; margin-top: 5px" >
-                    <ion-button size="small" expand="block" [color]= "trait.enable == true ? 'light' : 'secondary'" 
+                    <button size="small" expand="block" 
                     (click)= "btnclick(i)"
-                    style="width: 140px; --height: 30px; --border-radius: 4px;  font-size: 12px; --margin-start: unset;" >{{trait.traits}}</ion-button>
+                    [class] = "trait.enable == true ? 'focus' : 'unfocus'">{{trait.traits}}</button>
                 </div>
             </ion-row>
           </div>
         </div>
         <div padding-top>
-          <ion-button size="default" (click)="save()" expand="block" color="dark" >DONE</ion-button>
+          <ion-button size="default" (click)="save()" expand="block" >DONE</ion-button>
         </div>
     
     </div>
