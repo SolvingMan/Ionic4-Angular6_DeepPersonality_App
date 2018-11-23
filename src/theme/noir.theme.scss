@@ -1,0 +1,158 @@
+.theme-noir {
+  ion-content {
+      // --ion-background-color: rgb(255, 255, 255) !important;
+      $SIDEMENU_TOP: rgb(227, 255, 253) ;
+      $SIDEMENU_BOTTOM: rgb(205, 253, 255);
+      $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+      // padding: 10px;
+      background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+      background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+      background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+      background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+      --background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+      
+  }
+  ion-label {
+  
+  
+  }
+  ion-button {
+    padding: unset !important;
+    border-radius: 20px;
+    $SIDEMENU_TOP: #01A4F4 ;
+    $SIDEMENU_BOTTOM: #87D3FF;
+    $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+    // padding: 10px;
+    background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+    --background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+    --background-activated: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+  }
+  ion-icon {
+    font-size: 42px;
+    color: #68c6ff;
+  }
+  .title {
+    font-size: 30px !important;
+    color: #3F5584 !important;
+    font-weight: bold;
+  }
+  .question_div {
+    margin-top: 30px;
+    width: 100%; height: 150px; padding: 65px 15px;
+    $SIDEMENU_TOP: #01A4F4 ;
+    $SIDEMENU_BOTTOM: #87D3FF;
+    $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+    background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+    --background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+    --background-activated: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+  }
+
+  .previous_button {
+    background: white !important;
+    color: #3F5584;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: auto;
+  }
+
+  .agree_button {
+    $SIDEMENU_TOP: #184E68  ;
+    $SIDEMENU_BOTTOM: #57CA85;
+    $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+    background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+    --background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+    --background-activated: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+  }
+  .neither_button {
+    $SIDEMENU_TOP: #01A4F4;
+    $SIDEMENU_BOTTOM: #87D3FF;
+    $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+    background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+    --background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+    --background-activated: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+  }
+  .disagree_button {
+    $SIDEMENU_TOP: #F543A2;
+    $SIDEMENU_BOTTOM: #FF7676;
+    $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+    background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+    background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+    --background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+    --background-activated: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM) !important;
+  }
+  ion-segment {
+    --border-color-checked: #989aa2 !important; 
+    --background-checked: #ffffff;
+    --color: #8c8c8c !important;
+    --color-checked: #3F5584;
+  }
+  ion-item {
+    // --ion-color-base: #fafafa;
+    --border-color: #f4f5f8 !important;
+  }
+  .cs_text{
+    color: #78849E;
+  }
+  .percent_text {
+    color: #fafafa;
+    background-color: #3497FD;
+  }
+  .permission_div {
+    background-color:#fafafa; 
+    border-radius: 10px;
+  }
+  .add_permission_input {
+    background-color: #fafafa ; 
+    border: 2px solid  #90E1FF ; 
+    padding-top: 1px; 
+    padding-bottom: 0px; 
+    border-radius: 6px; 
+    text-align: left;
+    h6 {
+      font-size: 10px; 
+      margin-top: 5px; 
+      margin-bottom: 1px; 
+      color: black; 
+      opacity: 0.5;
+    }
+    ion-input {
+      font-size: 12px;
+       color: #3F5584; 
+       font-weight: bold;
+        --padding-top: 1px; 
+        --padding-bottom: 7px
+    }
+  }
+  .select_description {
+    font-size: 10px;
+    padding-top: 10px; 
+    color: #757575; 
+    opacity: 1;
+  }
+  .sort_button {
+    width: 93px; 
+    --height: 18px; 
+    --border-radius: 4px !important; 
+    font-size: 8px; 
+    --ion-color-base: #2b2a2f !important;
+    --background: #fafafa !important;
+    color: #3497FD;
+    border-color: #3497FD
+  }
+    
+}

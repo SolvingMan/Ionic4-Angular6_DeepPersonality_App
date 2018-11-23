@@ -1,8 +1,8 @@
 <ion-content >
     <div padding>
     <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 45px">
-        <ion-label style="font-size: 30px; color: white; font-weight: bold;">Profile</ion-label>
-        <ion-icon style="font-size: 42px; color: #C2F5FE;" name="md-person"></ion-icon>
+        <ion-label class="title">Profile</ion-label>
+        <ion-icon name="md-person"></ion-icon>
     </div>
 
     <div padding-top>
@@ -19,11 +19,10 @@
 
     <div *ngIf="viewMode === 'positive'" padding-top style="border-radius: 10px">
         <div>
-            <ion-item expand="block" color="dark" style="">
-                <ion-label style="font-size: 14px">trait</ion-label>
-                <h6 style="margin-right: 10px; font-size: 14px">cs</h6>
-                <h6 style="margin-right: 10px;  
-                font-size: 14px; background-color: black; border-radius: 4px; --inner-padding-top: 0px; ">percent</h6>
+            <ion-item expand="block">
+                <ion-label style="font-size: 14px">TRAIT</ion-label>
+                <h6 style="margin-right: 10px; font-size: 14px" class="cs_text">CS</h6>
+                <h6 style="margin-right: 10px; font-size: 14px;  border-radius: 4px; --inner-padding-top: 0px;" class="percent_text">PERCENT</h6>
             </ion-item>
 
             <!-- <ion-item expand="block" color="dark" style="">
@@ -32,27 +31,26 @@
                 <h6 style="margin-right: 10px; padding: 3px;  background-color: black; border-radius: 4px;">12%</h6>
             </ion-item> -->
 
-            <ion-item expand="block" color="dark" style="" *ngFor="let x of this.positive_cs;  let i = index" >
+            <ion-item expand="block" style="" *ngFor="let x of this.positive_cs;  let i = index" >
                 <ion-label>{{x.trait_name}}</ion-label>
-                <h6 style="margin-right: 10px;">{{x.cs}}</h6>
-                <h6 style="margin-right: 10px; padding: 3px;  background-color: black;font-size: 14px; border-radius: 4px;">{{x.percent}}%</h6>
+                <h6 style="margin-right: 10px;" class="cs_text">{{x.cs}} CS</h6>
+                <h6 style="margin-right: 10px; padding: 3px; font-size: 14px; border-radius: 4px;" class="percent_text">{{x.percent}}%</h6>
             </ion-item>
         </div>
     </div>
 
     <div *ngIf="viewMode === 'negative'" padding-top style="border-radius: 10px">
         <div>
-            <ion-item expand="block" color="dark" style="">
-                <ion-label style="font-size: 14px">trait</ion-label>
-                <h6 style="margin-right: 10px; font-size: 14px">cs</h6>
-                <h6 style="margin-right: 10px;  
-                font-size: 14px; background-color: black; border-radius: 4px; --inner-padding-top: 0px; ">percent</h6>
+            <ion-item expand="block" >
+                <ion-label style="font-size: 14px" >TRAIT</ion-label>
+                <h6 style="margin-right: 10px; font-size: 14px" class="cs_text">CS</h6>
+                <h6 style="margin-right: 10px; font-size: 14px; border-radius: 4px; --inner-padding-top: 0px;" class="percent_text">PERCENT</h6>
             </ion-item>
 
-            <ion-item expand="block" color="dark" style="" *ngFor="let x of this.negative_cs;  let i = index" >
+            <ion-item expand="block" *ngFor="let x of this.negative_cs;  let i = index" >
                 <ion-label>{{x.trait_name}}</ion-label>
-                <h6 style="margin-right: 10px;">{{x.cs}}</h6>
-                <h6 style="margin-right: 10px; padding: 3px; font-size: 14px; background-color: black; border-radius: 4px;">{{x.percent}}%</h6>
+                <h6 style="margin-right: 10px;" class="cs_text">{{x.cs}}</h6>
+                <h6 style="margin-right: 10px; padding: 3px; font-size: 14px; border-radius: 4px;" class="percent_text">{{x.percent}}%</h6>
             </ion-item>
         </div>
     </div>

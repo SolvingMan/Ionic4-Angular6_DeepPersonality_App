@@ -161,7 +161,8 @@ swipeDown(event: any): any {
     console.log('Swipe Down', event);
 } 
 swipe(event) {
-  console.log('Swipe Down', event);
+  debugger;
+  console.log('Swipe Down');
   if(event.direction === 2) {
     console.log('Swipe Down', event);
   }

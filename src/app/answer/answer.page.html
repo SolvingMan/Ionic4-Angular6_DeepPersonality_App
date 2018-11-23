@@ -1,40 +1,30 @@
-<ion-content (swipe)="swipe($event)">
+<ion-content >
+  <div (swipe)="swipe($event)">
   <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 45px">
-    <ion-label style="font-size: 30px; color: white; font-weight: bold;">Question</ion-label>
-    <ion-icon style="font-size: 42px; color: #C2F5FE;" name="md-help"></ion-icon>
+    <ion-label class="title">Question</ion-label>
+    <ion-icon name="md-help"></ion-icon>
 </div>
   
-  <div  text-center item-text 
-       style="background-color: #353535;  width: 100%; height: 150px; padding: 65px 15px">
+  <div  text-center item-text class="question_div">
       <ion-label style="color: white; font-size: 21px; font-weight: bold;">{{question}}</ion-label>
-      
-      
-      <div  text-center item-text style="margin-top: 40px;"  *ngIf="previous_button===true">
-        <ion-button  
-           style="font-size: 15px;
-           font-weight: bold;
-           margin: auto;
-           --background: white;
-           --background-activated: unset;
-           color: #353535;"  (click)="previous_question()">previous question</ion-button>
-      </div>
+  </div>
+  <div  text-center item-text style="margin-top: -15px; height: 20px;" >
+    <ion-button  *ngIf="previous_button===true" class = "previous_button" (click)="previous_question()">previous question</ion-button>
   </div>
  
 
-  <div style="margin-top: 200px;">
+  <div style="margin-top: 155px;">
     <ion-grid>
       <ion-row>
-        <ion-col >
-          <button   (click)="nextquestion('agree')" >Agree</button>
-        </ion-col>
-        <ion-col>
-          <button (click)="nextquestion('neither')"  >Neither</button>
-        </ion-col>
-        <ion-col>
-          <button  (click)="nextquestion('disagree')"  >Disagree</button>
-        </ion-col>
+       
+          <button  class="disagree_button" (click)="nextquestion('disagree')">Disagree</button>
+      
+          <button class="neither_button" (click)="nextquestion('neither')">Neither</button>
+      
+          <button  class="agree_button" (click)="nextquestion('agree')">Agree</button>
+     
       </ion-row>
     </ion-grid>
   </div>
-  
+  </div>
 </ion-content>
