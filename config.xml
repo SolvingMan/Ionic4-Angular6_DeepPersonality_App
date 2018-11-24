@@ -85,4 +85,5 @@
     <plugin name="cordova-plugin-advanced-http" spec="2.0.1" />
     <engine name="android" spec="7.1.2" />
     <engine name="ios" spec="4.5.5" />
+    <plugin name="cordova-plugin-local-notification" spec="0.9.0-beta.2" />
 </widget>

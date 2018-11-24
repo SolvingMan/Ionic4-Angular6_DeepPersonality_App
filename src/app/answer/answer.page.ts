@@ -20,11 +20,12 @@ export class AnswerPage implements OnInit {
   question_id : number;
   user : any;
   loading: boolean;
-  tesarray: any;
   data: any;
   previous_button: boolean;
   batch_calculate : number;
   batch_size : number;
+  swipe_status: string;
+  answer: string;
 
   timerId : any;
   
@@ -67,6 +68,7 @@ export class AnswerPage implements OnInit {
         console.log(data);
         if (data['result'] == 'success') {
           this.question = data['question'].questions;
+          this.swipe_status = data['user'].swipe;
         } else {
           alert("server connection error");
         }
@@ -77,6 +79,7 @@ export class AnswerPage implements OnInit {
   }
 
   nextquestion(answer) {
+      this.answer = answer;
       if (!this.loading) {
           if (this.batch_size === this.batch_calculate) {
             this.batch_calculate = 0;
@@ -86,7 +89,7 @@ export class AnswerPage implements OnInit {
               const headers = new HttpHeaders();
               headers.set('Content-Type', 'application/json');
               this.loading = true;
-              this.http.get('http://192.168.0.70:8100/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer='+answer, {headers: headers}).subscribe(data => {
+              this.http.get('http://192.168.0.70:8100/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer='+this.answer, {headers: headers}).subscribe(data => {
                 console.log(data);
                 if (data['result'] == 'success') {
                   this.question = data['question'].questions
@@ -107,15 +110,15 @@ export class AnswerPage implements OnInit {
       } else {
         console.log(this.loading, "loading");
       }
-      // clearTimeout(this.timerId);
+      clearTimeout(this.timerId);
       this.previous_button = true;
-      // this.timerId = setTimeout( () => {
-      //   this.previous_button = false;
-      // }, 5000);
+      this.timerId = setTimeout( () => {
+        this.previous_button = false;
+      }, 5000);
   }
 
   previous_question() {
-    console.log("previosdu quesitohj")
+      console.log("previous question")
       this.previous_button = false;
       this.question_id = this.question_id -2;
       const headers = new HttpHeaders();
@@ -141,34 +144,20 @@ export class AnswerPage implements OnInit {
   }
 
 
-  swipeAll(event: any): any {
-    console.log('Swipe All', event);
-}
-
-swipeLeft(event: any): any {
-    console.log('Swipe Left', event);
-}
-
-swipeRight(event: any): any {
-    console.log('Swipe Right', event);
-}
-
-swipeUp(event: any): any {
-    console.log('Swipe Up', event);
-}
-
-swipeDown(event: any): any {
-    console.log('Swipe Down', event);
-} 
-swipe(event) {
-  debugger;
-  console.log('Swipe Down');
-  if(event.direction === 2) {
-    console.log('Swipe Down', event);
+  swipe(event) {
+    // debugger;
+    console.log(event);
+    if (this.swipe_status == "enable") {
+      if(event.direction === 2) {
+        console.log('Swipe Down', event);
+        this.answer = "agree";
+      }
+      if(event.direction === 4) {
+        console.log('Swipe Dowasdfsan', event);
+        this.answer = "disagree";
+      }
+      this.nextquestion(this.answer);
+    }
   }
-  if(event.direction === 4) {
-    console.log('Swipe Dowasdfsan', event);
-  }
-}
 
 }

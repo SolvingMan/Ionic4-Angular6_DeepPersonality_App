@@ -2,7 +2,7 @@
   ion-content {
       // --ion-background-color: rgb(255, 255, 255) !important;
       $SIDEMENU_TOP: rgb(227, 255, 253) ;
-      $SIDEMENU_BOTTOM: rgb(205, 253, 255);
+      $SIDEMENU_BOTTOM: rgb(162, 244, 247);
       $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
       // padding: 10px;
       background: -webkit-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
@@ -32,12 +32,15 @@
   }
   ion-icon {
     font-size: 42px;
-    color: #68c6ff;
+    // color: #68c6ff;
   }
   .title {
     font-size: 30px !important;
     color: #3F5584 !important;
     font-weight: bold;
+  }
+  .title_icon {
+    color: #269ce2;
   }
   .question_div {
     margin-top: 30px;
@@ -107,8 +110,10 @@
   }
   ion-tab-bar {
     background: #d0fcff;
-    ion-label {
-      color :#269ce2;
+    --color :#269ce2;
+    ion-tab-button{
+      --color: #01a4f4;
+      --color-selected: #10dc60;
     }
   }
   

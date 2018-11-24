@@ -14,12 +14,15 @@
     }
     ion-icon {
       font-size: 42px;
-      color : #C2F5FE;
+      // color : #C2F5FE;
     }
     .title {
       font-size: 30px !important;
       color:  #f4f5f8 !important;
       font-weight: bold;
+    }
+    .title_icon {
+      color : #C2F5FE;
     }
     .question_div {
       margin-top: 30px;
@@ -68,9 +71,6 @@
     ion-tab-bar {
       background: #232227;
       --color : #C2F5FE;
-      ion-label {
-        color : #C2F5FE;
-      }
     }
     
     .cs_text{
