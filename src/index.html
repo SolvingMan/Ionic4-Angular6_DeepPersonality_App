@@ -10,7 +10,7 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
 
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png">
+  <link rel="icon" type="image/png" href="assets/icon/icon.png">
 
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,7 +22,13 @@
 </body>
 </html>
 
-
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('service worker installed'))
+      .catch(err => console.error('Error', err));
+  }
+</script>
 <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
 <script>
   // Initialize Firebase

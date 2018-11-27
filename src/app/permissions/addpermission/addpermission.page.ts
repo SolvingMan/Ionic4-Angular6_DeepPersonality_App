@@ -47,7 +47,7 @@ export class AddpermissionPage implements OnInit {
   get_all_traits() {
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.get('http://192.168.0.70:8100/api/get_all_traits', {headers: headers}).subscribe(data => {
+    this.http.get('http://onemoretest.co/api/get_all_traits', {headers: headers}).subscribe(data => {
       console.log(data);
       if (data['result'] == 'successful') {
           this.all_traits = data['traits'];
@@ -95,7 +95,7 @@ export class AddpermissionPage implements OnInit {
         const headers = new HttpHeaders();
         headers.set('Content-Type', 'application/json');
         
-        this.http.post('http://192.168.0.70:8100/api/add_permission', this.add_permission_user, {headers: headers}).subscribe(data => {
+        this.http.post('http://onemoretest.co/api/add_permission', this.add_permission_user, {headers: headers}).subscribe(data => {
           console.log(data);
           if (data['result'] == 'successful') {
             // this.all_traits = data['traits'];

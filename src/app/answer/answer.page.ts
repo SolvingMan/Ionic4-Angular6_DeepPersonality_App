@@ -64,7 +64,7 @@ export class AnswerPage implements OnInit {
 
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
-      this.http.get('http://192.168.0.70:8100/api/start_question?email='+this.email+'&question_id='+this.question_id, {headers: headers}).subscribe(data => {
+      this.http.get('http://onemoretest.co/api/start_question?email='+this.email+'&question_id='+this.question_id, {headers: headers}).subscribe(data => {
         console.log(data);
         if (data['result'] == 'success') {
           this.question = data['question'].questions;
@@ -89,7 +89,7 @@ export class AnswerPage implements OnInit {
               const headers = new HttpHeaders();
               headers.set('Content-Type', 'application/json');
               this.loading = true;
-              this.http.get('http://192.168.0.70:8100/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer='+this.answer, {headers: headers}).subscribe(data => {
+              this.http.get('http://onemoretest.co/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer='+this.answer, {headers: headers}).subscribe(data => {
                 console.log(data);
                 if (data['result'] == 'success') {
                   this.question = data['question'].questions
@@ -124,7 +124,7 @@ export class AnswerPage implements OnInit {
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
       this.loading = true;
-      this.http.get('http://192.168.0.70:8100/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer=neither', {headers: headers}).subscribe(data => {
+      this.http.get('http://onemoretest.co/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer=neither', {headers: headers}).subscribe(data => {
         console.log(data);
         if (data['result'] == 'success') {
           this.question = data['question'].questions

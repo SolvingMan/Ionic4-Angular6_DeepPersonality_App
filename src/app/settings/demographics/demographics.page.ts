@@ -1025,7 +1025,7 @@ export class DemographicsPage implements OnInit {
 
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.get('http://192.168.0.70:8100/api/get_user_info?email='+this.email, {headers: headers}).subscribe(data => {
+    this.http.get('http://onemoretest.co/api/get_user_info?email='+this.email, {headers: headers}).subscribe(data => {
       console.log(data);
       if (data['result'] == 'success') {
         this.selected_age = data['user'].age;
@@ -1051,7 +1051,7 @@ export class DemographicsPage implements OnInit {
     };
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.post('http://192.168.0.70:8100/api/update_demographics',this.demographics, {headers: headers}).subscribe(data => {
+    this.http.post('http://onemoretest.co/api/update_demographics',this.demographics, {headers: headers}).subscribe(data => {
         console.log(data);
         if (data['result'] == 'success' ) {
             // this.router.navigateByUrl("tab/(question:question)")
