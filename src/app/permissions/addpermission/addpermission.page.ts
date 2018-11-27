@@ -16,6 +16,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class AddpermissionPage implements OnInit {
   all_traits: any;
+  all_traits_sort: any;
   add_permission_user: any;
 
   email: string;
@@ -27,7 +28,8 @@ export class AddpermissionPage implements OnInit {
     public router: Router, 
     private http: HttpClient,
     public navCtrl: NavController,  
-    public userData: UserDataService
+    public userData: UserDataService,
+    private alertCtrl: AlertController, 
   ) { }
 
   ngOnInit() {
@@ -49,6 +51,7 @@ export class AddpermissionPage implements OnInit {
       console.log(data);
       if (data['result'] == 'successful') {
           this.all_traits = data['traits'];
+          this.all_traits_sort = data['traits_sort'];
           // for (let i = 0; i < this.all_traits.length; i++) {
           //   i % 2 == 0 ? this.all_traits[i].enable = true : this.all_traits[i].enable = false;
           // }
@@ -63,6 +66,7 @@ export class AddpermissionPage implements OnInit {
 
   btnclick(index) {
       this.all_traits[index].enable = !this.all_traits[index].enable;
+      // this.all_traits_sort[index].enable = !this.all_traits_sort[index].enable;
       console.log(this.all_traits[index].traits);
   }
 
@@ -71,11 +75,15 @@ export class AddpermissionPage implements OnInit {
       for (let i = 0; i < this.all_traits.length; i++) {
         this.all_traits[i].enable == true ? this.compare_traits.push(this.all_traits[i].traits) : console.log("d") ;
       }
-      if (this.compare_traits.length == 0 || this.compare_email == undefined || this.compare_code == undefined) {
-        alert("please select one more  triait");
+      if (this.compare_email == undefined || this.compare_code == undefined) {
+        alert("please input email and code");
       }
       else {
-        this.add_permission_user = {
+        if (this.compare_traits.length == 0) {
+          alert("please select one more traits");
+        } 
+        else {
+          this.add_permission_user = {
             "email" : this.email,
             "compare_email": this.compare_email,
             "compare_traits": this.compare_traits,
@@ -90,9 +98,8 @@ export class AddpermissionPage implements OnInit {
         this.http.post('http://192.168.0.70:8100/api/add_permission', this.add_permission_user, {headers: headers}).subscribe(data => {
           console.log(data);
           if (data['result'] == 'successful') {
-              // this.all_traits = data['traits'];
-
-              
+            // this.all_traits = data['traits'];
+            this.alertshow();
           } else {
             alert("server connection error");
           }
@@ -100,7 +107,49 @@ export class AddpermissionPage implements OnInit {
         error => {
         console.log(error);
         })
+        }
+      
       }
   }
+  
+  async alertshow() {
+    const alert = await this.alertCtrl.create({
+      header: 'Add Permission Successfully',
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  sort_trait() {
+    // for (let i = 0; i < this.all_traits.length; i++) {
+    //   this.all_traits[i].enable = true;
+    //   // this.all_traits_sort[i].enable = true;
+    // }
+    // this.all_traits.sort('traits');
+    this.all_traits = this.all_traits_sort;
+  }
+  
+  deselect_all() {
+    console.log("deselect");
+    for (let i = 0; i < this.all_traits.length; i++) {
+      this.all_traits[i].enable = false;
+      // this.all_traits_sort[i].enable = true;
+    }
+  }
+
+  select_all() {
+    // console.log("sdf");
+    for (let i = 0; i < this.all_traits.length; i++) {
+      this.all_traits[i].enable = true;
+      // this.all_traits_sort[i].enable = true;
+    }
+  }
+
+
 
 }

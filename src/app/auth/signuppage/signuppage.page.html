@@ -9,25 +9,25 @@
                 </div>
                 <div padding>
                   <ion-label style="color:white">Email</ion-label>
-                  <ion-item>
+                  <ion-item class="login_item">
                     <ion-input type="email" [(ngModel)]="email" placeholder="Email"></ion-input>
                   </ion-item>
                 </div> 
                 <div padding>
                   <ion-label style="color:white">Username</ion-label>
-                  <ion-item>
+                  <ion-item class="login_item">
                     <ion-input type="text" [(ngModel)]="username" placeholder="Username"></ion-input>
                   </ion-item>
                 </div>  
                 <div padding>
                   <ion-label style="color:white; margin-top: 10px">Password</ion-label>
-                  <ion-item>
+                  <ion-item class="login_item">
                     <ion-input type="password" [(ngModel)]="password" placeholder="Password"></ion-input>
                   </ion-item>
                 </div>
                 <div padding>
                     <ion-label style="color:white; margin-top: 10px">Confirm Password</ion-label>
-                    <ion-item>
+                    <ion-item class="login_item">
                       <ion-input type="password" [(ngModel)]="confirm_password" placeholder="Confirm Password"></ion-input>
                     </ion-item>
                 </div>
@@ -35,7 +35,7 @@
               
                 
                 <div padding>
-                  <ion-button size="large" (click)="signup()" expand="block" color="light" >Sign Up</ion-button>
+                  <ion-button size="default" (click)="signup()" expand="block" color="light" >Sign Up</ion-button>
                 </div>
 
                

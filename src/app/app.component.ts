@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, Events  } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -15,10 +15,19 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public events: Events
   ) {
     this.initializeApp();
-
+    events.subscribe('user:theme_color', (theme_color) => {
+      console.log('theme_color is', theme_color);
+      if (theme_color === 'dark' ) {
+        this.themeClass = 'theme-clover';
+      }
+      else {
+        this.themeClass = 'theme-noir';
+      }
+    });
     this.themes = [
       // { title: 'Default Red', theme: 'theme-red', color:'assets/imgs/FF0000.png' },
       { title: 'Noir', theme: 'theme-noir', color:'assets/imgs/333333.png' },

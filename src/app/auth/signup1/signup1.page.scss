@@ -1,6 +1,6 @@
 
 ion-content {
-    --ion-background-color: #2B2A2F;
+    // --ion-background-color: #2B2A2F;
 }
 // ion-label {
 //     margin-top: 10px;
@@ -16,7 +16,7 @@ $height100: 100%;
 ion-grid {
     width:100%;
     height: $height100;
-    background: #dfdfdf;
+    // background: #dfdfdf;
 }
 
 ion-row {
@@ -25,7 +25,7 @@ ion-row {
 
 ion-col {
     border: 1px solid #488aff;
-    background: $white-color;
+    // background: $white-color;
 }
 
 ion-button {
@@ -57,7 +57,7 @@ ion-item {
 
 @media (min-width: 240px) and (max-width: 768px) {
     ion-grid {
-        background: $white-color;
+        // background: $white-color;
     }
     ion-col {
         border: none;

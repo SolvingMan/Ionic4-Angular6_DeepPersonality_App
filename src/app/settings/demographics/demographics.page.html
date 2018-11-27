@@ -13,7 +13,7 @@
       <div padding>
           <ion-item expand="block" >
               <ion-label>YOUR AGE</ion-label>
-              <ion-select [(ngModel)]="selected_age" >
+              <ion-select [(ngModel)]="selected_age" class="ion_select_color">
                   <ion-select-option  *ngFor="let x of this.ages;  let i = index" [value]="x" [selected]="selected">{{x}}</ion-select-option>
                   <!-- <ion-select-option value="no">NO</ion-select-option> -->
               </ion-select>
@@ -21,21 +21,21 @@
 
           <ion-item   expand="block">
               <ion-label>COUNTRY OF BIRTH</ion-label>
-              <ion-select [(ngModel)]="selected_country">
+              <ion-select [(ngModel)]="selected_country" class="ion_select_color">
                   <ion-select-option *ngFor="let country of this.countries" [value] = "country.name" [selected]="selected" >{{country.name}}</ion-select-option>
               </ion-select>
           </ion-item>
 
           <ion-item   expand="block" >
               <ion-label>COUNTRY OF RESIDENCE</ion-label>
-              <ion-select [(ngModel)]="selected_residence_country">
+              <ion-select [(ngModel)]="selected_residence_country" class="ion_select_color">
                 <ion-select-option *ngFor="let country of this.countries" [value] = "country.name" [selected]="selected" >{{country.name}}</ion-select-option>
               </ion-select>
           </ion-item>
 
           <ion-item  expand="block" >
               <ion-label>YOUR GENDER</ion-label>
-              <ion-select [(ngModel)]="gender">
+              <ion-select [(ngModel)]="gender" class="ion_select_color">
                   <ion-select-option value="male">Male</ion-select-option>
                   <ion-select-option value="female">Female</ion-select-option>
               </ion-select>

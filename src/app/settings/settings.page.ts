@@ -6,7 +6,7 @@ import { UserDataService } from '../provider/user-data.service';
 import { resolve } from 'path';
 import { JsonPipe } from '@angular/common';
 
-import { NavController, Datetime } from '@ionic/angular';
+import { NavController, Datetime, Events } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
 
@@ -26,7 +26,8 @@ export class SettingsPage implements OnInit {
     public router: Router, 
     private http: HttpClient,
     public navCtrl: NavController,  
-    public userData: UserDataService
+    public userData: UserDataService,
+    public events: Events
   ) { 
     this.swipe = "enable";
     this.theme_action= "static";
@@ -76,6 +77,7 @@ export class SettingsPage implements OnInit {
         this.swipe = data['user'].swipe;
         this.theme_action = data['user'].theme_action;
         this.theme_color = data['user'].theme_color;
+        this.events.publish('user:theme_color', this.theme_color);
       } else {
         alert("server connection error");
       }

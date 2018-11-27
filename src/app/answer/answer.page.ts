@@ -81,7 +81,7 @@ export class AnswerPage implements OnInit {
   nextquestion(answer) {
       this.answer = answer;
       if (!this.loading) {
-          if (this.batch_size === this.batch_calculate) {
+          if (this.batch_size <= this.batch_calculate) {
             this.batch_calculate = 0;
             this.router.navigateByUrl("tab/(question:question)");
           } else {
@@ -130,7 +130,7 @@ export class AnswerPage implements OnInit {
           this.question = data['question'].questions
           this.question_id =  data['question'].id;
           this.loading = false;
-          this.batch_calculate = this.batch_calculate + 1;
+          // this.batch_calculate = this.batch_calculate - 1;
           this.userData.set_complete_question_id(data['question'].id);
         } else {
           this.loading = false;
@@ -146,16 +146,16 @@ export class AnswerPage implements OnInit {
 
   swipe(event) {
     // debugger;
-    console.log(event);
-    if (this.swipe_status == "enable") {
+    if (this.swipe_status == "disable") {
       if(event.direction === 2) {
-        console.log('Swipe Down', event);
+        console.log('right to left');
         this.answer = "agree";
       }
       if(event.direction === 4) {
-        console.log('Swipe Dowasdfsan', event);
+        console.log('left to right');
         this.answer = "disagree";
       }
+      console.log(event.direction);
       this.nextquestion(this.answer);
     }
   }

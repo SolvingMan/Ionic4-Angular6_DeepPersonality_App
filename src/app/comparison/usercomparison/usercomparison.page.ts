@@ -19,6 +19,7 @@ export class UsercomparisonPage implements OnInit {
   all_handshake: any;
   compare_email: string;
   compare_result: any;
+  compare_result_difference: any;
   viewMode: string;
 
   constructor(
@@ -67,6 +68,7 @@ export class UsercomparisonPage implements OnInit {
         console.log(data);
         if (data['result'] == 'successful') {
           this.compare_result = data['compare_result'];
+          this.compare_result_difference = data['compare_result_difference'];
         } else {
           this.all_handshake = [];
           alert("server connection error");

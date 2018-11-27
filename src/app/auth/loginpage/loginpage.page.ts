@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Events } from '@ionic/angular';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { UserDataService } from '../../provider/user-data.service';
+
 
 @Component({
   selector: 'app-loginpage',
@@ -24,7 +25,8 @@ export class LoginpagePage implements OnInit {
     private alertCtrl: AlertController,  
     public navCtrl: NavController,  
     private http: HttpClient,
-    public userData: UserDataService
+    public userData: UserDataService,
+    public events: Events
   ) { 
     this.email= '';
     this.password= '';
@@ -50,6 +52,7 @@ export class LoginpagePage implements OnInit {
       this.http.post('http://192.168.0.70:8100/api/user/login',this.user, {headers: headers}).subscribe(data => {
       console.log(data);
         if (data['result'] == 'successful') {
+          this.events.publish('user:theme_color', data['data'].theme_color);
           this.userData.setUsername(this.email);
           this.userData.setbatch_size(data['data'].batch_size);
           this.userData.set_complete_question_id(data['data'].complete_question_id);

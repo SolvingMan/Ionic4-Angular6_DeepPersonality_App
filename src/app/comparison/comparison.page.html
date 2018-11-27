@@ -29,22 +29,11 @@
 
   <div *ngIf="viewMode === 'alphabet'" padding-top style="border-radius: 10px">
     <ion-list>
-      <ion-item
-        href="/tab/(comparison:usercomparison)"
+      <ion-item 
+        *ngFor='let user of this.all_compares_sort; let i = index'
+        [href]="'/tab/(comparison:usercomparison/'+i"
         detail="true">
-        <ion-label>user-22</ion-label>      
-      </ion-item>
-
-      <ion-item
-        href="/tab/(comparison:usercomparison)"
-        detail="true">
-        <ion-label>admin</ion-label>      
-      </ion-item>
-
-      <ion-item
-        href="/tab/(comparison:usercomparison)"
-        detail="true">
-        <ion-label>Jhon</ion-label>      
+        <ion-label>{{user.name}}</ion-label>      
       </ion-item>
     </ion-list>
   </div>

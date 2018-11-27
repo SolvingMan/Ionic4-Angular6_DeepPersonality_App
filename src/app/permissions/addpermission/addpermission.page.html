@@ -26,12 +26,12 @@
           <div  style="flex: row" >
               <ion-row>
                   <ion-col col-4> 
-                      <button class="sort_button" >SORT BY ALPHABETA</button>
+                      <button class="sort_button" (click)= "sort_trait()">SORT BY ALPHABETA</button>
                   </ion-col>
                 
                   <ion-col col-8 style="display: inline-flex;">
-                      <button style="margin-right: 5px;" class="select_all">Select All</button>
-                      <button class="select_all" >Deselect All</button>
+                      <button style="margin-right: 5px;" class="select_all" (click)= "select_all()">Select All</button>
+                      <button class="select_all" (click)= "deselect_all()">Deselect All</button>
                   </ion-col>
               </ion-row>
           </div>

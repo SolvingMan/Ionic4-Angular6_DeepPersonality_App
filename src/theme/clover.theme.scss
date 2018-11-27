@@ -16,6 +16,13 @@
       font-size: 42px;
       // color : #C2F5FE;
     }
+    .login_item {
+      --background: unset;
+      ion-input {
+        color: white;
+      }
+
+    }
     .title {
       font-size: 30px !important;
       color:  #f4f5f8 !important;
