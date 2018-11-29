@@ -44,7 +44,7 @@ export class UsercomparisonPage implements OnInit {
     });
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.get('http://onemoretest.co/api/get_handshakes?email=' + this.email, { headers: headers }).subscribe(data => {
+    this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_handshakes?email=' + this.email, { headers: headers }).subscribe(data => {
       console.log(data);
       if (data['result'] == 'successful') {
         this.all_handshake = data['data'];
@@ -64,7 +64,7 @@ export class UsercomparisonPage implements OnInit {
     get_all_compare() {
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
-      this.http.get('http://onemoretest.co/api/compare_traits_result?email=' + this.email + '&compare_email='+ this.compare_email, { headers: headers }).subscribe(data => {
+      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/compare_traits_result?email=' + this.email + '&compare_email='+ this.compare_email, { headers: headers }).subscribe(data => {
         console.log(data);
         if (data['result'] == 'successful') {
           this.compare_result = data['compare_result'];

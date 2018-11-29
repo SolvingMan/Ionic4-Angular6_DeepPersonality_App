@@ -41,7 +41,7 @@ export class QuestionPage implements OnInit {
     // this.router.navigateByUrl("tab/(question:question)")
     // const headers = new HttpHeaders();
     // headers.set('Content-Type', 'application/json');
-    // this.http.post('http://onemoretest.co/api/user/login',this.user, {headers: headers}).subscribe(data => {
+    // this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/user/login',this.user, {headers: headers}).subscribe(data => {
     // console.log(data);
     // }, 
     // error => {

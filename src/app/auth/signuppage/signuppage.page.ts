@@ -48,7 +48,7 @@ export class SignuppagePage implements OnInit {
         if (this.password === this.confirm_password) {
           const headers = new HttpHeaders();
           headers.set('Content-Type', 'application/json');
-          this.http.post('http://onemoretest.co/api/user/signup',this.user, {headers: headers}).subscribe(data => {
+          this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/user/signup',this.user, {headers: headers}).subscribe(data => {
               console.log(data);
               if (data['result'] == 'success' ) {
                 this.userData.setUsername(data['data'].email);

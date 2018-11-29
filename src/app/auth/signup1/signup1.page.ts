@@ -45,13 +45,13 @@ export class Signup1Page implements OnInit {
 
   save() {    
       if (this.notification == "enable" && this.notification_type == undefined) {
-        alert ('please select the notification setting');
+        this.alertshow_notification();
         return;
       }
       else {
         if (this.notification_type == "custom") {
             if ((this.frequency == undefined || this.batch_size == undefined || this.start_time == undefined || this.end_time == undefined)) {
-              alert ('please select the all settings');
+              this.alertshow_traits();
             }
             else {
               this.notification = {
@@ -66,7 +66,7 @@ export class Signup1Page implements OnInit {
     
               const headers = new HttpHeaders();
               headers.set('Content-Type', 'application/json');
-              this.http.post('http://onemoretest.co/api/update_notification_setting',this.notification, {headers: headers}).subscribe(data => {
+              this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/update_notification_setting',this.notification, {headers: headers}).subscribe(data => {
                   console.log(data);
                   if (data['result'] == 'success' ) {
                     this.userData.setbatch_size(data['updated_user'].batch_size);
@@ -74,7 +74,7 @@ export class Signup1Page implements OnInit {
                     this.router.navigateByUrl("/signup2");
                   }
                   else {
-                    alert("Already username or email exist");
+                    this.alertshow_email_exist();
                   }
                 }, 
                 error => {
@@ -84,6 +84,44 @@ export class Signup1Page implements OnInit {
         } 
       }
   }
+
+  async alertshow_notification() {
+    const alert = await this.alertCtrl.create({
+      header: 'please select the notification setting',
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async alertshow_email_exist() {
+    const alert = await this.alertCtrl.create({
+      header: 'Email is not exist',
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
+  }
  
+  async alertshow_traits() {
+    const alert = await this.alertCtrl.create({
+      header: 'please select the all settings',
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
+  }
 
 }

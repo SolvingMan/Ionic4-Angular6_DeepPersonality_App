@@ -33,7 +33,7 @@ export class ProfilePage implements OnInit {
 
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.get('http://onemoretest.co/api/positive_cs?email='+this.email, {headers: headers}).subscribe(data => {
+    this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/positive_cs?email='+this.email, {headers: headers}).subscribe(data => {
       console.log(data);
       if (data['result'] == 'success') {
         this.positive_cs = data['person_cs_positive'];

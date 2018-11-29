@@ -1029,7 +1029,7 @@ constructor(
 
     save() {
       if (this.gender == undefined || this.selected_age == undefined || this.selected_country == undefined || this.selected_residence_country == undefined) {
-          alert("please insert all setting");
+          this.alertshow("please insert all setting");
       }
       else {
         this.demographics = {
@@ -1041,19 +1041,35 @@ constructor(
         };
         const headers = new HttpHeaders();
         headers.set('Content-Type', 'application/json');
-        this.http.post('http://onemoretest.co/api/update_demographics',this.demographics, {headers: headers}).subscribe(data => {
+        this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/update_demographics',this.demographics, {headers: headers}).subscribe(data => {
             console.log(data);
             if (data['result'] == 'success' ) {
                 this.router.navigateByUrl("tab/(question:question)")
             }
             else {
-              alert("Already username or email exist");
+                this.alertshow("Already username or email exist");
             }
           }, 
           error => {
           console.log(error);
         })
       }
-  }
+    }
+
+    async alertshow(msg) {
+        const alert = await this.alertCtrl.create({
+          header: msg,
+          buttons: [
+            {
+              text: 'Ok',
+              handler: (data: any) => {}
+            }
+          ]
+        });
+        await alert.present();
+      }
+    
+
+
 
 }

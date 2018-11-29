@@ -49,7 +49,7 @@ export class LoginpagePage implements OnInit {
   
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
-      this.http.post('http://onemoretest.co/api/user/login',this.user, {headers: headers}).subscribe(data => {
+      this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/user/login',this.user, {headers: headers}).subscribe(data => {
       console.log(data);
         if (data['result'] == 'successful') {
           this.events.publish('user:theme_color', data['data'].theme_color);
