@@ -22,7 +22,8 @@ export class PermissioncodePage implements OnInit {
     public router: Router, 
     private http: HttpClient,
     public navCtrl: NavController,  
-    public userData: UserDataService
+    public userData: UserDataService,
+    private alertCtrl: AlertController, 
   ) { 
 
   }
@@ -35,12 +36,12 @@ export class PermissioncodePage implements OnInit {
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_permission_code?email='+this.email, {headers: headers}).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       if (data['result'] == 'successful') {
         // this.question = data['question'].questions;
         this.permission_code = data['code'];
       } else {
-        alert("server connection error");
+        this.alertshow("server connection error");
       }
     }, 
     error => {
@@ -50,7 +51,7 @@ export class PermissioncodePage implements OnInit {
   }
 
   generate_code() {
-    alert("the connection will be deleted, do you want to continue?")
+    this.alertshow("the connection will be deleted, do you want to continue?")
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/generate_code?email='+this.email, {headers: headers}).subscribe(data => {
@@ -59,12 +60,25 @@ export class PermissioncodePage implements OnInit {
         // this.question = data['question'].questions;
         this.permission_code = data['code'];
       } else {
-        alert("server connection error");
+        this.alertshow("server connection error");
       }
     }, 
     error => {
     console.log(error);
     })
+  }
+
+  async alertshow(msg) {
+    const alert = await this.alertCtrl.create({
+      header: msg,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }

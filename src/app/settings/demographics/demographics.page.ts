@@ -1034,7 +1034,7 @@ export class DemographicsPage implements OnInit {
         this.gender = data['user'].gender;
 
       } else {
-        alert("server connection error");
+        this.alertshow("server connection error");
       }
     }, 
     error => {
@@ -1055,15 +1055,27 @@ export class DemographicsPage implements OnInit {
         console.log(data);
         if (data['result'] == 'success' ) {
             // this.router.navigateByUrl("tab/(question:question)")
-            alert("updated successfully")
+            this.alertshow("updated successfully")
         }
         else {
-          alert("Already username or email exist");
+          this.alertshow("Already username or email exist");
         }
       }, 
       error => {
       console.log(error);
     })
+  }
+  async alertshow(msg) {
+    const alert = await this.alertCtrl.create({
+      header: msg,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }

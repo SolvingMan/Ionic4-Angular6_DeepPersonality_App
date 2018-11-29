@@ -23,7 +23,7 @@ export class SignuppagePage implements OnInit {
     private alertCtrl: AlertController,  
     public navCtrl: NavController,  
     private http: HttpClient,
-    public userData: UserDataService
+    public userData: UserDataService,
   ) { 
     this.email = '';
     this.username = '';
@@ -37,7 +37,7 @@ export class SignuppagePage implements OnInit {
   signup() {
     if (this.email === '' || this.username === '' || this.password == '' || this.confirm_password === '' )
     {
-      alert("please insert information");
+      this.alertshow("please insert information");
     }
     else {
         this.user = {
@@ -55,7 +55,7 @@ export class SignuppagePage implements OnInit {
                 this.router.navigateByUrl("/signup1");
               }
               else {
-                alert("Already username or email exist");
+                this.alertshow("Already username or email exist");
               }
             }, 
             error => {
@@ -63,10 +63,23 @@ export class SignuppagePage implements OnInit {
           })
         }
         else {
-          alert("different password");
+          this.alertshow("different password");
         }
       }
+    }
+    async alertshow(msg) {
+      const alert = await this.alertCtrl.create({
+        header: msg,
+        buttons: [
+          {
+            text: 'Ok',
+            handler: (data: any) => {}
+          }
+        ]
+      });
+      await alert.present();
+    }
 
-  }
+
 
 }

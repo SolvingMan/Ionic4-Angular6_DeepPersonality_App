@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NavController, Datetime } from '@ionic/angular';
 import { UserDataService } from '../provider/user-data.service';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -20,7 +20,8 @@ export class ProfilePage implements OnInit {
     public router: Router, 
     private http: HttpClient,
     public navCtrl: NavController,  
-    public userData: UserDataService
+    public userData: UserDataService,
+    private alertCtrl: AlertController, 
   ) {
     this.viewMode = "positive";
    }
@@ -38,16 +39,27 @@ export class ProfilePage implements OnInit {
       if (data['result'] == 'success') {
         this.positive_cs = data['person_cs_positive'];
         this.negative_cs = data['person_cs_negative'];
-
-        // this.question = data['question'].questions;
       } else {
-        alert("server connection error");
+        this.alertshow("server connection error");
       }
     }, 
     error => {
     console.log(error);
     })
-
   }
+
+  async alertshow(msg) {
+    const alert = await this.alertCtrl.create({
+      header: msg,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
+  }
+
 
 }

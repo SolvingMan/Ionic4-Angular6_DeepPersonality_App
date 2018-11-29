@@ -39,7 +39,7 @@ export class AddpermissionPage implements OnInit {
 
   async getUsername() {
     await this.userData.getUsername().then((username) => {
-      console.log(username);
+      // console.log(username);
       this.email = username;
     });
   }
@@ -56,7 +56,7 @@ export class AddpermissionPage implements OnInit {
           //   i % 2 == 0 ? this.all_traits[i].enable = true : this.all_traits[i].enable = false;
           // }
       } else {
-        alert("server connection error");
+        this.alertshow("server connection error");
       }
     }, 
     error => {
@@ -76,11 +76,11 @@ export class AddpermissionPage implements OnInit {
         this.all_traits[i].enable == true ? this.compare_traits.push(this.all_traits[i].traits) : console.log("d") ;
       }
       if (this.compare_email == undefined || this.compare_code == undefined) {
-        alert("please input email and code");
+        this.alertshow("please input email and code");
       }
       else {
         if (this.compare_traits.length == 0) {
-          alert("please select one more traits");
+          this.alertshow("please select one more traits");
         } 
         else {
           this.add_permission_user = {
@@ -99,9 +99,9 @@ export class AddpermissionPage implements OnInit {
           console.log(data);
           if (data['result'] == 'successful') {
             // this.all_traits = data['traits'];
-            this.alertshow();
+            // this.alertshow();
           } else {
-            alert("server connection error");
+            this.alertshow("server connection error");
           }
         }, 
         error => {
@@ -112,9 +112,9 @@ export class AddpermissionPage implements OnInit {
       }
   }
   
-  async alertshow() {
+  async alertshow(msg) {
     const alert = await this.alertCtrl.create({
-      header: 'Add Permission Successfully',
+      header: msg,
       buttons: [
         {
           text: 'Ok',
@@ -135,7 +135,7 @@ export class AddpermissionPage implements OnInit {
   }
   
   deselect_all() {
-    console.log("deselect");
+    // console.log("deselect");
     for (let i = 0; i < this.all_traits.length; i++) {
       this.all_traits[i].enable = false;
       // this.all_traits_sort[i].enable = true;

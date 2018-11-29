@@ -27,13 +27,14 @@ export class UsercomparisonPage implements OnInit {
     private http: HttpClient,
     public navCtrl: NavController,
     private route: ActivatedRoute,
-    public userData: UserDataService
+    public userData: UserDataService,
+    private alertCtrl: AlertController, 
   ) {
     this.viewMode ='similar'
    }
 
   ngOnInit() {
-    console.log("dsf")
+    // console.log("dsf");
   }
 
   async ionViewWillEnter() {
@@ -53,7 +54,7 @@ export class UsercomparisonPage implements OnInit {
         this.get_all_compare();
       } else {
         this.all_handshake = [];
-        alert("server connection error");
+        this.alertshow("server connection error");
       }
     },
       error => {
@@ -71,12 +72,24 @@ export class UsercomparisonPage implements OnInit {
           this.compare_result_difference = data['compare_result_difference'];
         } else {
           this.all_handshake = [];
-          alert("server connection error");
+          this.alertshow("server connection error");
         }
       },
         error => {
           console.log(error);
         })
+    }
+    async alertshow(msg) {
+      const alert = await this.alertCtrl.create({
+        header: msg,
+        buttons: [
+          {
+            text: 'Ok',
+            handler: (data: any) => {}
+          }
+        ]
+      });
+      await alert.present();
     }
     
 

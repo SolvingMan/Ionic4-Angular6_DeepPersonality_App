@@ -27,7 +27,8 @@ export class SettingsPage implements OnInit {
     private http: HttpClient,
     public navCtrl: NavController,  
     public userData: UserDataService,
-    public events: Events
+    public events: Events,
+    private alertCtrl: AlertController,  
   ) { 
     this.swipe = "enable";
     this.theme_action= "static";
@@ -53,7 +54,7 @@ export class SettingsPage implements OnInit {
           this.theme_action = data['user'].theme_action;
           this.theme_color = data['user'].theme_color;
         } else {
-          alert("server connection error");
+          this.alertshow("server connection error");
         }
       }, 
       error => {
@@ -79,12 +80,24 @@ export class SettingsPage implements OnInit {
         this.theme_color = data['user'].theme_color;
         this.events.publish('user:theme_color', this.theme_color);
       } else {
-        alert("server connection error");
+        this.alertshow("server connection error");
       }
     }, 
     error => {
     console.log(error);
     })
+  }
+  async alertshow(msg) {
+    const alert = await this.alertCtrl.create({
+      header: msg,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }

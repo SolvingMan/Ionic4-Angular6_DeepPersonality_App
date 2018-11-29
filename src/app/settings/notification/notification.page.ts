@@ -30,7 +30,8 @@ export class NotificationPage implements OnInit {
     public router: Router, 
     private http: HttpClient,
     public navCtrl: NavController,  
-    public userData: UserDataService
+    public userData: UserDataService,
+    private alertCtrl: AlertController,  
   ) { }
 
   ngOnInit() {
@@ -55,7 +56,7 @@ export class NotificationPage implements OnInit {
         this.start_time = data['user'].start_time;
         this.end_time = data['user'].end_time;
       } else {
-        alert("server connection error");
+        this.alertshow("server connection error");
       }
     }, 
     error => {
@@ -79,16 +80,28 @@ export class NotificationPage implements OnInit {
         console.log(data);
         if (data['result'] == 'success' ) {
           this.userData.setbatch_size(data['updated_user'].batch_size);
-          alert("succssfully");
+          this.alertshow("succssfully");
         }
         else {
-          alert("Already username or email exist");
+          this.alertshow("Already username or email exist");
         }
       }, 
       error => {
       console.log(error);
     })
 
+  }
+  async alertshow(msg) {
+    const alert = await this.alertCtrl.create({
+      header: msg,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }

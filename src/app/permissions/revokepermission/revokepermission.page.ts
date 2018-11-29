@@ -28,7 +28,8 @@ export class RevokepermissionPage implements OnInit {
     public router: Router,
     private http: HttpClient,
     public navCtrl: NavController,
-    public userData: UserDataService
+    public userData: UserDataService,
+    private alertCtrl: AlertController, 
   ) {
     this.viewMode = 'date';
     // this.all_handshake[1].delete_trait = 'happy';
@@ -48,9 +49,13 @@ export class RevokepermissionPage implements OnInit {
         this.all_handshake = data['data'];
         this.all_handshake_sort = data['sort_data'];
         console.log(this.all_handshake[0].email);
-      } else {
+      }
+      else if (data['result'] == "no connection people") {
+        this.alertshow("You don't have any connection");
+      } 
+      else {
         this.all_handshake = [];
-        alert("server connection error");
+        this.alertshow("server connection error");
       }
     },
       error => {
@@ -81,7 +86,7 @@ export class RevokepermissionPage implements OnInit {
           this.ngOnInit();
         }
         else {
-          alert("server connection failed");
+          // this.alertshow("server connection failed");
         }
       },
         error => {
@@ -89,6 +94,18 @@ export class RevokepermissionPage implements OnInit {
         })
     } else { }
 
+  }
+  async alertshow(msg) {
+    const alert = await this.alertCtrl.create({
+      header: msg,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
   }
 
 

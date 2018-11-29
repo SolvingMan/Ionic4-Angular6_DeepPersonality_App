@@ -24,7 +24,8 @@ export class ComparisonPage implements OnInit {
     public router: Router,
     private http: HttpClient,
     public navCtrl: NavController,
-    public userData: UserDataService
+    public userData: UserDataService,
+    private alertCtrl: AlertController,
   ) { this.viewMode = "date"; }
 
   async ngOnInit() {
@@ -43,12 +44,24 @@ export class ComparisonPage implements OnInit {
       } else {
         this.all_compares = [];
         this.all_compares_sort = [];
-        alert("server connection error");
+        // this.alertshow("server connection error");
       }
     },
       error => {
         console.log(error);
       })
+  }
+  async alertshow(msg) {
+    const alert = await this.alertCtrl.create({
+      header: msg,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (data: any) => {}
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }
