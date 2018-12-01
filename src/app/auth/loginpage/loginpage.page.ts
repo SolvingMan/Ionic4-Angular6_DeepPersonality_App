@@ -7,7 +7,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { UserDataService } from '../../provider/user-data.service';
 
-
+import { Platform } from '@ionic/angular';
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
   selector: 'app-loginpage',
   templateUrl: './loginpage.page.html',
@@ -26,7 +28,9 @@ export class LoginpagePage implements OnInit {
     public navCtrl: NavController,  
     private http: HttpClient,
     public userData: UserDataService,
-    public events: Events
+    public events: Events,
+    private afAuth: AngularFireAuth, 
+    private platform: Platform
   ) { 
     this.email= '';
     this.password= '';
@@ -49,7 +53,7 @@ export class LoginpagePage implements OnInit {
   
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
-      this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/user/login',this.user, {headers: headers}).subscribe(data => {
+      this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/user/login', this.user, {headers: headers}).subscribe(data => {
       console.log(data);
         if (data['result'] == 'successful') {
           this.events.publish('user:theme_color', data['data'].theme_color);
@@ -84,5 +88,63 @@ export class LoginpagePage implements OnInit {
     });
     await alert.present();
   }
+  googleLogin() {
+    if (this.platform.is('cordova')) {
+      this.nativeGoogleLogin();
+    } else {
+      this.webGoogleLogin();
+    }
+  }
+
+  async webGoogleLogin(): Promise<void> {
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      const credential = await this.afAuth.auth.signInWithPopup(provider);
+      console.log(credential);
+      this.email = credential.user.email;
+      const headers = new HttpHeaders();
+      headers.set('Content-Type', 'application/json');
+      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_user_info?&email'+this.email, {headers: headers}).subscribe(data => {
+      console.log(data);
+        if (data['result'] == 'success') {
+            //  sign in authentication  
+          this.events.publish('user:theme_color', data['data'].theme_color);
+          this.userData.setUsername(this.email);
+          this.userData.setbatch_size(data['data'].batch_size);
+          this.userData.set_complete_question_id(data['data'].complete_question_id);
+          this.router.navigateByUrl("tab/(question:question)");
+        }
+        else {
+        //   sign up
+        this.user = {
+          "email" : this.email,
+          "username" : credential.user.displayName,
+          "password" : "",
+        }
+        const headers = new HttpHeaders();
+        headers.set('Content-Type', 'application/json');
+        this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/user/signup',this.user, {headers: headers}).subscribe(data => {
+            console.log(data);
+            if (data['result'] == 'success' ) {
+              this.userData.setUsername(data['data'].email);
+              this.router.navigateByUrl("/signup1");
+            }
+            else {
+            }
+          }, 
+          error => {
+          console.log(error);
+        })     
+        }
+      }, 
+      error => {
+      console.log(error);
+      })      
+    } catch(err) {
+      console.log(err)
+    }  
+  }
+  async nativeGoogleLogin(): Promise<void> {
+  } 
 
 }

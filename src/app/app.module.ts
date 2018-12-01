@@ -13,10 +13,31 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { IonicStorageModule } from '@ionic/storage';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDoLmR4cYxuEt2026yNazIX0G8Amjv_cFg",
+  authDomain: "deep-personality.firebaseapp.com",
+  databaseURL: "https://deep-personality.firebaseio.com",
+  projectId: "deep-personality",
+  storageBucket: "deep-personality.appspot.com",
+  messagingSenderId: "893488855789"
+}
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot(), AppRoutingModule, HttpModule, HttpClientModule, HttpClientJsonpModule],
+  imports: [BrowserModule, 
+    IonicModule.forRoot(), 
+    IonicStorageModule.forRoot(), 
+    AppRoutingModule, 
+    HttpModule, 
+    HttpClientModule, 
+    HttpClientJsonpModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+  ],
   providers: [
     StatusBar,
     SplashScreen,
