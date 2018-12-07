@@ -6,7 +6,7 @@ import { UserDataService } from '../provider/user-data.service';
 import { resolve } from 'path';
 import { JsonPipe } from '@angular/common';
 
-import { NavController, Datetime } from '@ionic/angular';
+import { NavController, Datetime, Events } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -25,8 +25,14 @@ export class ComparisonPage implements OnInit {
     private http: HttpClient,
     public navCtrl: NavController,
     public userData: UserDataService,
+    public events: Events,
     private alertCtrl: AlertController,
-  ) { this.viewMode = "date"; }
+  ) { 
+    this.viewMode = "date";
+    events.subscribe('add_permission', (email) => {
+      this.ngOnInit();
+    })
+  }
 
   async ngOnInit() {
     await this.userData.getUsername().then((username) => {
@@ -63,5 +69,4 @@ export class ComparisonPage implements OnInit {
     });
     await alert.present();
   }
-
 }

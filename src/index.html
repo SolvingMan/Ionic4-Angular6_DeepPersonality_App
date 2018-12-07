@@ -23,10 +23,10 @@
 </html>
 
 <script>
+  // document.body.requestFullscreen();
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(() => console.log('service worker installed'))
-      .catch(err => console.error('Error', err));
+    navigator.serviceWorker.getRegistrations().then(function(registrations) { for(let registration of registrations) { registration.unregister() } })
   }
 </script>
 <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+<link rel="manifest" href="/manifest.json">

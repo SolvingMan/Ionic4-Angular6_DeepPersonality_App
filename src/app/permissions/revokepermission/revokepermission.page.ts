@@ -6,7 +6,7 @@ import { UserDataService } from '../../provider/user-data.service';
 import { resolve } from 'path';
 import { JsonPipe } from '@angular/common';
 
-import { NavController, Datetime } from '@ionic/angular';
+import { NavController, Datetime, Events } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -29,10 +29,14 @@ export class RevokepermissionPage implements OnInit {
     private http: HttpClient,
     public navCtrl: NavController,
     public userData: UserDataService,
+    public events: Events,
     private alertCtrl: AlertController, 
   ) {
     this.viewMode = 'date';
     // this.all_handshake[1].delete_trait = 'happy';
+    events.subscribe('add_permission', (email) => {
+      this.ngOnInit();
+    })
   }
 
   async ngOnInit() {
@@ -52,6 +56,7 @@ export class RevokepermissionPage implements OnInit {
       }
       else if (data['result'] == "no connection people") {
         this.alertshow("You don't have any connection");
+        // this.ngOnInit();
       } 
       else {
         this.all_handshake = [];
@@ -74,12 +79,14 @@ export class RevokepermissionPage implements OnInit {
         if (data['result'] == 'successful') {
           // this.refresh = this.all_handshake;
           // this.all_handshake = [];
-          // this.all_handshake = this.refresh; 
+          // this.all_handshake this.refresh; 
           // this.all_handshake[index].compare_traits = data['compare_traits'];
           // this.all_handshake_sort[index].compare_traits = data['compare_traits'];
           this.ngOnInit();
-        } else if (data['result'] == 'no array') {
-          this.ngOnInit();
+        } else if (data['result'] == "no array") {
+          this.all_handshake = [];
+          this.all_handshake_sort = []; 
+          // this.ngOnInit();
         }
         else if (data['result'] == "no connection people") {
           // alert("no connection people");

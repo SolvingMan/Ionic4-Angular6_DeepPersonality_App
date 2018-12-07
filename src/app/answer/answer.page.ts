@@ -6,7 +6,7 @@ import { UserDataService } from '../provider/user-data.service';
 import { resolve } from 'path';
 import { JsonPipe } from '@angular/common';
 
-import { NavController, Datetime } from '@ionic/angular';
+import { NavController, Datetime, Events } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { IonicSwipeAllModule } from 'ionic-swipe-all';
 @Component({
@@ -34,6 +34,7 @@ export class AnswerPage implements OnInit {
     public router: Router, 
     private http: HttpClient,
     public navCtrl: NavController,  
+    public events: Events,
     public userData: UserDataService
   ) {
     this.email = '';
@@ -41,6 +42,9 @@ export class AnswerPage implements OnInit {
     this.loading = false;
     this.question_id = 10;
     this.batch_calculate = 0;
+    events.subscribe('add_permission', (status) => {
+      this.swipe_status = status;
+    })
   }
 
    ngOnInit() {
@@ -83,6 +87,7 @@ export class AnswerPage implements OnInit {
       if (!this.loading) {
           if (this.batch_size <= this.batch_calculate) {
             this.batch_calculate = 0;
+            this.events.publish('batch_anwer_done', this.email);
             this.router.navigateByUrl("tab/(question:question)");
           } else {
               console.log(this.question_id);
@@ -146,7 +151,7 @@ export class AnswerPage implements OnInit {
 
   swipe(event) {
     // debugger;
-    if (this.swipe_status == "disable") {
+    if (this.swipe_status !== "disable") {
       if(event.direction === 2) {
         console.log('right to left');
         this.answer = "agree";

@@ -6,7 +6,7 @@ import { UserDataService } from '../../provider/user-data.service';
 import { resolve } from 'path';
 import { JsonPipe } from '@angular/common';
 
-import { NavController, Datetime } from '@ionic/angular';
+import { NavController, Datetime, Events } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -29,6 +29,7 @@ export class AddpermissionPage implements OnInit {
     private http: HttpClient,
     public navCtrl: NavController,  
     public userData: UserDataService,
+    public events: Events,
     private alertCtrl: AlertController, 
   ) { }
 
@@ -76,7 +77,7 @@ export class AddpermissionPage implements OnInit {
         this.all_traits[i].enable == true ? this.compare_traits.push(this.all_traits[i].traits) : console.log("d") ;
       }
       if (this.compare_email == undefined || this.compare_code == undefined) {
-        this.alertshow("please input email and code");
+        this.alertshow("please insert email and code");
       }
       else {
         if (this.compare_traits.length == 0) {
@@ -100,7 +101,12 @@ export class AddpermissionPage implements OnInit {
           if (data['result'] == 'successful') {
             // this.all_traits = data['traits'];
             // this.alertshow();
-          } else {
+            this.alertshow("Add Permission Successfully");
+            this.events.publish('add_permission', this.email);
+          } else if (data['result'] == 'Invaild code') {
+            this.alertshow("Invalid Permission Code.");
+          }
+          else {
             this.alertshow("server connection error");
           }
         }, 
@@ -108,7 +114,6 @@ export class AddpermissionPage implements OnInit {
         console.log(error);
         })
         }
-      
       }
   }
   

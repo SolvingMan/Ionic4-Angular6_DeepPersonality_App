@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Platform, Events  } from '@ionic/angular';
+import { Platform, Events, Datetime } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -16,7 +16,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public events: Events
+    public events: Events,
+
   ) {
     this.initializeApp();
     events.subscribe('user:theme_color', (theme_color) => {
@@ -34,7 +35,7 @@ export class AppComponent {
       { title: 'Clover', theme: 'theme-clover', color:'assets/imgs/388E3C.png' },
       // { title: 'Blueberry', theme: 'theme-blueberry', color:'assets/imgs/1e88e5.png' }
     ];
-    this.themeClass = 'theme-noir';
+    this.themeClass = 'theme-clover';
   }
   
 
@@ -42,6 +43,12 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+    //   Notification.requestPermission().then(function(result) {
+    //     console.log(result);
+    //     setInterval(()=> {
+    //       var notification = new Notification("Hi there!");
+    //     },5000)
+    //   });
     });
   }
 }

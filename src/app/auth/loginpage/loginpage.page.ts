@@ -17,6 +17,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class LoginpagePage implements OnInit {
   email: string;
+  google_login_email: string;
   password: string;
   user: any;
 
@@ -43,7 +44,7 @@ export class LoginpagePage implements OnInit {
   login() {
 
     if ( this.email === "" || this.password == '') {
-      this.loginfailed();
+      this.alertshow("Please insert Email and Password");
     } 
     else {
       this.user = { 
@@ -63,7 +64,7 @@ export class LoginpagePage implements OnInit {
           this.router.navigateByUrl("tab/(question:question)");
         }
         else {
-         this.alertshow();
+         this.alertshow("Email or Password in Invalid");
         }
       }, 
       error => {
@@ -72,13 +73,9 @@ export class LoginpagePage implements OnInit {
     }
   }
 
-  loginfailed() {
-    console.log("loginfailed function") 
-  }
-
-  async alertshow() {
+  async alertshow(msg) {
     const alert = await this.alertCtrl.create({
-      header: 'Email is not exist',
+      header: msg,
       buttons: [
         {
           text: 'Ok',
@@ -88,6 +85,7 @@ export class LoginpagePage implements OnInit {
     });
     await alert.present();
   }
+
   googleLogin() {
     if (this.platform.is('cordova')) {
       this.nativeGoogleLogin();
@@ -100,24 +98,26 @@ export class LoginpagePage implements OnInit {
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
       const credential = await this.afAuth.auth.signInWithPopup(provider);
-      console.log(credential);
-      this.email = credential.user.email;
+      console.log(credential.user);
+      this.google_login_email = credential.user.email;
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
-      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_user_info?&email'+this.email, {headers: headers}).subscribe(data => {
+      console.log(this.google_login_email);
+      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_user_info?&email='+this.google_login_email, {headers: headers}).subscribe(data => {
       console.log(data);
         if (data['result'] == 'success') {
             //  sign in authentication  
-          this.events.publish('user:theme_color', data['data'].theme_color);
-          this.userData.setUsername(this.email);
-          this.userData.setbatch_size(data['data'].batch_size);
-          this.userData.set_complete_question_id(data['data'].complete_question_id);
+          this.events.publish('user:theme_color', data['user'].theme_color);
+          this.userData.setUsername(this.google_login_email);
+          this.userData.setbatch_size(data['user'].batch_size);
+          this.userData.set_complete_question_id(data['user'].complete_question_id);
           this.router.navigateByUrl("tab/(question:question)");
         }
         else {
         //   sign up
+        console.log("sign up");
         this.user = {
-          "email" : this.email,
+          "email" : this.google_login_email,
           "username" : credential.user.displayName,
           "password" : "",
         }

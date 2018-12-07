@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NavController, Datetime } from '@ionic/angular';
+import { NavController, Datetime, Events } from '@ionic/angular';
 import { UserDataService } from '../provider/user-data.service';
 import { AlertController } from '@ionic/angular';
 @Component({
@@ -19,11 +19,15 @@ export class ProfilePage implements OnInit {
   constructor(
     public router: Router, 
     private http: HttpClient,
-    public navCtrl: NavController,  
+    public navCtrl: NavController, 
+    public events: Events, 
     public userData: UserDataService,
     private alertCtrl: AlertController, 
   ) {
     this.viewMode = "positive";
+    events.subscribe('batch_anwer_done', (email)=> {
+      this.ngOnInit();
+    })
    }
 
    async ngOnInit() {
@@ -39,8 +43,10 @@ export class ProfilePage implements OnInit {
       if (data['result'] == 'success') {
         this.positive_cs = data['person_cs_positive'];
         this.negative_cs = data['person_cs_negative'];
+      } else if (data['result'] == 'failed') {
+        this.alertshow("You don't have any Personality Test.");
       } else {
-        this.alertshow("server connection error");
+        this.alertshow("Server Connection Failed");
       }
     }, 
     error => {

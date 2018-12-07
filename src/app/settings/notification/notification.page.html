@@ -30,23 +30,23 @@
         <ion-item  expand="block" >
           <ion-label>SELECT A BATCH SIZE</ion-label>
           <ion-select [(ngModel)]="batch_size" class="ion_select_color">
-              <ion-select-option [value]="30">30</ion-select-option>
-              <ion-select-option [value]="50">50</ion-select-option>
-              <ion-select-option [value]="70">70</ion-select-option>
+              <ion-select-option value=30>30</ion-select-option>
+              <ion-select-option value=50>50</ion-select-option>
+              <ion-select-option value=70>70</ion-select-option>
           </ion-select>
         </ion-item>
 
         <ion-item  *ngIf="notification_type==='custom'&&notification_action==='enable'" expand="block">
           <ion-label>SELECT A FREQUENCY</ion-label>
           <ion-select [(ngModel)]="frequency" class="ion_select_color">
-              <ion-select-option [value]="1">1</ion-select-option>
-              <ion-select-option [value]="2">2</ion-select-option>
-              <ion-select-option [value]="3">3</ion-select-option>
-              <ion-select-option [value]="4">4</ion-select-option>
-              <ion-select-option [value]="5">5</ion-select-option>
-              <ion-select-option [value]="6">6</ion-select-option>
-              <ion-select-option [value]="7">7</ion-select-option>
-              <ion-select-option [value]="8">8</ion-select-option>
+              <ion-select-option value=1>1</ion-select-option>
+              <ion-select-option value=2>2</ion-select-option>
+              <ion-select-option value=3>3</ion-select-option>
+              <ion-select-option value=4>4</ion-select-option>
+              <ion-select-option value=5>5</ion-select-option>
+              <ion-select-option value=6>6</ion-select-option>
+              <ion-select-option value=7>7</ion-select-option>
+              <ion-select-option value=8>8</ion-select-option>
           </ion-select>
         </ion-item>
 

@@ -79,6 +79,7 @@ export class SettingsPage implements OnInit {
         this.theme_action = data['user'].theme_action;
         this.theme_color = data['user'].theme_color;
         this.events.publish('user:theme_color', this.theme_color);
+        this.events.publish('swipe', this.swipe);
       } else {
         this.alertshow("server connection error");
       }
