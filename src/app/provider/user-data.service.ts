@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Events } from '@ionic/angular';
+import { Events, Datetime } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Http ,HttpModule} from '@angular/http'
 
@@ -10,7 +10,8 @@ export class UserDataService {
   email : string;
   batch_size : number;
   complete_question_id : number;
-
+  start_time : any;
+  end_time: any;
   constructor(
     public http: Http,
     public events: Events,
@@ -56,4 +57,25 @@ export class UserDataService {
       return value;
     });
   }
+
+  set_start_time(time): Promise<any> {
+    return this.storage.set('start_time', time);
+  }
+
+  get_start_time(): Promise<any> {
+    return this.storage.get('start_time').then((value) => {
+      return value;
+    });
+  }
+
+  set_end_time(time): Promise<any> {
+    return this.storage.set('end_time', time);
+  }
+
+  get_end_time(): Promise<any> {
+    return this.storage.get('end_time').then((value) => {
+      return value;
+    });
+  }
+  
 }

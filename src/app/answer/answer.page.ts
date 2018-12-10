@@ -8,7 +8,7 @@ import { JsonPipe } from '@angular/common';
 
 import { NavController, Datetime, Events } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-import { IonicSwipeAllModule } from 'ionic-swipe-all';
+
 @Component({
   selector: 'app-answer',
   templateUrl: './answer.page.html',
@@ -151,6 +151,7 @@ export class AnswerPage implements OnInit {
 
   swipe(event) {
     // debugger;
+    console.log(this.swipe_status);
     if (this.swipe_status !== "disable") {
       if(event.direction === 2) {
         console.log('right to left');

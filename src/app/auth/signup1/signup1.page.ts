@@ -19,17 +19,25 @@ export class Signup1Page implements OnInit {
 
   notification_action: string;
   notification_type: string;
-  batch_size: number;
-  frequency : number;
-  start_time: Datetime;
-  end_time: Datetime;
+  batch_size: any;
+  frequency : any;
+  start_time: string;
+  end_time: string;
   constructor(
     public router: Router, 
     private alertCtrl: AlertController,  
     public navCtrl: NavController,  
     private http: HttpClient,
     public userData: UserDataService
-  ) {}
+  ) {
+  this.notification_action = 'enable';
+  this.notification_type = 'casual';
+  this.batch_size = "30";
+  this.frequency = "1";
+  this.start_time = new Date().toISOString();
+  this.end_time =new Date().toISOString();
+
+}
 
 
   async ngOnInit() {
@@ -63,7 +71,6 @@ export class Signup1Page implements OnInit {
                 "start_time" : this.start_time,
                 "end_time" : this.end_time
               };
-    
               const headers = new HttpHeaders();
               headers.set('Content-Type', 'application/json');
               this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/update_notification_setting',this.notification, {headers: headers}).subscribe(data => {

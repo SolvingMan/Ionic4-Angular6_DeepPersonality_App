@@ -17,7 +17,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDoLmR4cYxuEt2026yNazIX0G8Amjv_cFg",
+  apiKey: "AIzaSyC-xNprG3bSnEcD0SOF0z59t8QzYy3U0u0",
   authDomain: "deep-personality.firebaseapp.com",
   databaseURL: "https://deep-personality.firebaseio.com",
   projectId: "deep-personality",

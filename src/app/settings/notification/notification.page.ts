@@ -80,6 +80,8 @@ export class NotificationPage implements OnInit {
         console.log(data);
         if (data['result'] == 'success' ) {
           this.userData.setbatch_size(data['updated_user'].batch_size);
+          this.userData.set_start_time(data['updated_user'].start_time);
+          this.userData.set_end_time(data['updated_user'].end_time);
           this.alertshow("succssfully");
         }
         else {

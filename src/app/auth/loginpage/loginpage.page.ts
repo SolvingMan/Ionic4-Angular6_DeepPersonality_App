@@ -61,6 +61,8 @@ export class LoginpagePage implements OnInit {
           this.userData.setUsername(this.email);
           this.userData.setbatch_size(data['data'].batch_size);
           this.userData.set_complete_question_id(data['data'].complete_question_id);
+          this.userData.set_start_time(data['data'].start_time);
+          this.userData.set_end_time(data['data'].end_time);
           this.router.navigateByUrl("tab/(question:question)");
         }
         else {

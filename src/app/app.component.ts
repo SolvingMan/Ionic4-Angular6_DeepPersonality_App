@@ -43,12 +43,12 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-    //   Notification.requestPermission().then(function(result) {
-    //     console.log(result);
-    //     setInterval(()=> {
-    //       var notification = new Notification("Hi there!");
-    //     },5000)
-    //   });
+      Notification.requestPermission().then(function(result) {
+        console.log(result);
+        setInterval(()=> {
+          var notification = new Notification("Hi there!");
+        },5000)
+      });
     });
   }
 }
