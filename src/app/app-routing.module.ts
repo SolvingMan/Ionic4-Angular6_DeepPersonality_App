@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'answer', loadChildren: './answer/answer.module#AnswerPageModule' },
   { path: '', loadChildren: './tab/tab.module#TabPageModule' },
   { path: 'usercomparison', loadChildren: './comparison/usercomparison/usercomparison.module#UsercomparisonPageModule' },
+  { path: 'forgotpass', loadChildren: './auth/forgotpass/forgotpass.module#ForgotpassPageModule' },
   // { path: 'notification', loadChildren: './settings/notification/notification.module#NotificationPageModule' },
   // { path: 'demographics', loadChildren: './settings/demographics/demographics.module#DemographicsPageModule' },
   // { path: 'addpermission', loadChildren: './permissions/addpermission/addpermission.module#AddpermissionPageModule' },

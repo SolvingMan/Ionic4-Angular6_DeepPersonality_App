@@ -35,14 +35,14 @@ export class SignuppagePage implements OnInit {
   }
 
   signup() {
-    if (this.email === '' || this.username === '' || this.password == '' || this.confirm_password === '' )
+    if (this.email === '' || this.password == '' || this.confirm_password === '' )
     {
       this.alertshow("please insert information");
     }
     else {
         this.user = {
           "email" : this.email,
-          "username" : this.username,
+          "username" : this.email,
           "password" : this.password,
         }
         if (this.password === this.confirm_password) {

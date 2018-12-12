@@ -19,6 +19,7 @@
   ion-button {
     padding: unset !important;
     border-radius: 20px;
+    --border-radius: 21px;
     $SIDEMENU_TOP: #01A4F4 ;
     $SIDEMENU_BOTTOM: #87D3FF;
     $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);

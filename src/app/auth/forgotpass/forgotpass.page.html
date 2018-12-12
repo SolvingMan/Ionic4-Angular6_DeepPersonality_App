@@ -1,0 +1,19 @@
+
+<ion-content padding>
+    <div padding text-center item-text style="display: flex;  justify-content: center;  align-items: center; padding-top: 45px">
+        <ion-label class="title">Forgot Password?</ion-label>
+        <ion-icon  class="title_icon" name="unlock"></ion-icon>
+    </div>
+
+    <div padding style="margin-top: 30px">
+        <ion-label style="color:white">Please insert your Email</ion-label>
+        <ion-item class="login_item"> 
+          <ion-input type="text" [(ngModel)]="email" placeholder="Email"></ion-input>
+        </ion-item>
+    </div>
+    <div padding>
+      <ion-button size="default" (click)="sendmail()" expand="block" color="light"  >Send New Password</ion-button>
+    </div>
+  
+ 
+</ion-content>

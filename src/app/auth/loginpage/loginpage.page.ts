@@ -66,7 +66,7 @@ export class LoginpagePage implements OnInit {
           this.router.navigateByUrl("tab/(question:question)");
         }
         else {
-         this.alertshow("Email or Password in Invalid");
+         this.alertshow("Email or Password is Invalid");
         }
       }, 
       error => {
@@ -148,5 +148,9 @@ export class LoginpagePage implements OnInit {
   }
   async nativeGoogleLogin(): Promise<void> {
   } 
+
+  forgotpass() {
+    this.router.navigateByUrl("/forgotpass");
+  }
 
 }

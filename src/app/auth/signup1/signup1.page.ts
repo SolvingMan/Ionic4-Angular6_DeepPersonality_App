@@ -57,7 +57,6 @@ export class Signup1Page implements OnInit {
         return;
       }
       else {
-        if (this.notification_type == "custom") {
             if ((this.frequency == undefined || this.batch_size == undefined || this.start_time == undefined || this.end_time == undefined)) {
               this.alertshow_traits();
             }
@@ -88,7 +87,6 @@ export class Signup1Page implements OnInit {
                 console.log(error);
               })
             }
-        } 
       }
   }
 
@@ -107,7 +105,7 @@ export class Signup1Page implements OnInit {
 
   async alertshow_email_exist() {
     const alert = await this.alertCtrl.create({
-      header: 'Email is not exist',
+      header: 'Email is exist',
       buttons: [
         {
           text: 'Ok',

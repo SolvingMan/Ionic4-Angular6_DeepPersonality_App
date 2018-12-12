@@ -11,7 +11,7 @@
                 <div padding>
                   <ion-label style="color:white">Email</ion-label>
                   <ion-item class="login_item"> 
-                    <ion-input type="text" [(ngModel)]="email" placeholder="Username"></ion-input>
+                    <ion-input type="text" [(ngModel)]="email" placeholder="Email"></ion-input>
                   </ion-item>
                 </div>  
                 <div padding>
@@ -22,7 +22,7 @@
                 </div>
 
                 <div text-right>
-                  <ion-label style="color:white; font-size: 10px" >Forgot password?</ion-label>
+                  <ion-button style="color:white; font-size: 10px; --background: unset; --box-shadow: unset" (click)="forgotpass()">Forgot password?</ion-button>
                 </div>
                 
                 <div padding>
