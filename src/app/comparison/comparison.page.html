@@ -22,7 +22,7 @@
       *ngFor='let user of this.all_compares; let i = index'
       [href]="'/tab/(comparison:usercomparison/'+i"
       detail="true">
-      <ion-label>{{user.name}}</ion-label>      
+      <ion-label>{{user.email}}</ion-label>      
     </ion-item>
   </ion-list>
 </div>
@@ -33,7 +33,7 @@
         *ngFor='let user of this.all_compares_sort; let i = index'
         [href]="'/tab/(comparison:usercomparison/'+i"
         detail="true">
-        <ion-label>{{user.name}}</ion-label>      
+        <ion-label>{{user.email}}</ion-label>      
       </ion-item>
     </ion-list>
   </div>

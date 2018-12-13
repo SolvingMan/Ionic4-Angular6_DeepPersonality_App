@@ -89,9 +89,12 @@ export class LoginpagePage implements OnInit {
   }
 
   googleLogin() {
+    console.log('webgooglelogin');
     if (this.platform.is('cordova')) {
-      this.nativeGoogleLogin();
+      console.log('cordova');
+      this.webGoogleLogin();
     } else {
+      console.log('webgooglelogin');
       this.webGoogleLogin();
     }
   }

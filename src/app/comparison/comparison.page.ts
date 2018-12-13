@@ -50,7 +50,7 @@ export class ComparisonPage implements OnInit {
       } else {
         this.all_compares = [];
         this.all_compares_sort = [];
-        // this.alertshow("server connection error");
+        // this.alertshow("Server connection error");
       }
     },
       error => {

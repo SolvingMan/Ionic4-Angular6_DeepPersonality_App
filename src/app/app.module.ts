@@ -17,12 +17,20 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC-xNprG3bSnEcD0SOF0z59t8QzYy3U0u0",
-  authDomain: "deep-personality.firebaseapp.com",
-  databaseURL: "https://deep-personality.firebaseio.com",
-  projectId: "deep-personality",
-  storageBucket: "deep-personality.appspot.com",
-  messagingSenderId: "893488855789"
+  // apiKey: "AIzaSyC-xNprG3bSnEcD0SOF0z59t8QzYy3U0u0",
+  // authDomain: "deep-personality.firebaseapp.com",
+  // databaseURL: "https://deep-personality.firebaseio.com",
+  // projectId: "deep-personality",
+  // storageBucket: "deep-personality.appspot.com",
+  // messagingSenderId: "893488855789"
+  
+    apiKey: "AIzaSyC-EQ6Dsb3bPSGlTT-5CtIrr73kBXL20iI",
+    authDomain: "deepperson.firebaseapp.com",
+    databaseURL: "https://deepperson.firebaseio.com",
+    projectId: "deepperson",
+    storageBucket: "deepperson.appspot.com",
+    messagingSenderId: "894193190527"
+
 }
 
 @NgModule({

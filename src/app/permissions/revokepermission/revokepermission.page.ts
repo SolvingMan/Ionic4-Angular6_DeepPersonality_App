@@ -60,7 +60,7 @@ export class RevokepermissionPage implements OnInit {
       } 
       else {
         this.all_handshake = [];
-        this.alertshow("server connection error");
+        this.alertshow("Server connection error");
       }
     },
       error => {
@@ -93,7 +93,7 @@ export class RevokepermissionPage implements OnInit {
           this.ngOnInit();
         }
         else {
-          // this.alertshow("server connection failed");
+          // this.alertshow("Server connection failed");
         }
       },
         error => {

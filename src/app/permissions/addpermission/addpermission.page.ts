@@ -57,7 +57,7 @@ export class AddpermissionPage implements OnInit {
           //   i % 2 == 0 ? this.all_traits[i].enable = true : this.all_traits[i].enable = false;
           // }
       } else {
-        this.alertshow("server connection error");
+        this.alertshow("Server connection error");
       }
     }, 
     error => {
@@ -77,11 +77,11 @@ export class AddpermissionPage implements OnInit {
         this.all_traits[i].enable == true ? this.compare_traits.push(this.all_traits[i].traits) : console.log("d") ;
       }
       if (this.compare_email == undefined || this.compare_code == undefined) {
-        this.alertshow("please insert email and code");
+        this.alertshow("Please Insert Email and Code");
       }
       else {
         if (this.compare_traits.length == 0) {
-          this.alertshow("please select one more traits");
+          this.alertshow("Please Select one more traits");
         } 
         else {
           this.add_permission_user = {
@@ -107,7 +107,7 @@ export class AddpermissionPage implements OnInit {
             this.alertshow("Invalid Permission Code.");
           }
           else {
-            this.alertshow("server connection error");
+            this.alertshow("Server connection error");
           }
         }, 
         error => {

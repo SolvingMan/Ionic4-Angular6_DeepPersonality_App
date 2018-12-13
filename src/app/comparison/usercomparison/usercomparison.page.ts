@@ -54,7 +54,7 @@ export class UsercomparisonPage implements OnInit {
         this.get_all_compare();
       } else {
         this.all_handshake = [];
-        this.alertshow("server connection error");
+        this.alertshow("Server connection error");
       }
     },
       error => {
@@ -72,7 +72,7 @@ export class UsercomparisonPage implements OnInit {
           this.compare_result_difference = data['compare_result_difference'];
         } else {
           this.all_handshake = [];
-          this.alertshow("server connection error");
+          this.alertshow("Server connection error");
         }
       },
         error => {

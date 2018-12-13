@@ -22,7 +22,7 @@
 
         <div *ngIf="viewMode === 'date'" padding-top style="border-radius: 10px">
             <ion-item expand="block"  *ngFor="let user of this.all_handshake;  let i = index">
-                <ion-label>{{user.name}}</ion-label>
+                <ion-label>{{user.email}}</ion-label>
                 <ion-select [(ngModel)]="user.ngmodel_1" (ionChange)="onSelectChange(user.name, user.ngmodel_1, i)">
                     <ion-select-option  
                         *ngFor="let trait_one of this.user.compare_traits;  let i = index" 
@@ -37,7 +37,7 @@
 
         <div *ngIf="viewMode === 'alphabet'" padding-top style="border-radius: 10px">
             <ion-item expand="block" *ngFor="let user of this.all_handshake_sort;  let i = index">
-                <ion-label>{{user.name}}</ion-label>
+                <ion-label>{{user.email}}</ion-label>
                 <ion-select [(ngModel)]="user.ngmodel_2" (ionChange)="onSelectChange(user.name, user.ngmodel_2, i)">
                     <ion-select-option  
                         *ngFor="let trait of this.user.compare_traits;  let i = index" 

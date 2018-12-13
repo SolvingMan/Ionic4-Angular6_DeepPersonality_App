@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { UserDataService } from '../provider/user-data.service';
 import { resolve } from 'path';
 import { JsonPipe } from '@angular/common';
@@ -74,7 +73,7 @@ export class AnswerPage implements OnInit {
           this.question = data['question'].questions;
           this.swipe_status = data['user'].swipe;
         } else {
-          // alert("server connection error");
+          // alert("Server connection error");
         }
       }, 
       error => {
@@ -119,7 +118,7 @@ export class AnswerPage implements OnInit {
       this.previous_button = true;
       this.timerId = setTimeout( () => {
         this.previous_button = false;
-      }, 5000);
+      }, 50000);
   }
 
   previous_question() {

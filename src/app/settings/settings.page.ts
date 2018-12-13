@@ -53,9 +53,11 @@ export class SettingsPage implements OnInit {
           this.swipe = data['user'].swipe;
           this.theme_action = data['user'].theme_action;
           this.theme_color = data['user'].theme_color;
-          this.events.publish('user:theme_color', data['user'].theme_color);
+          if (this.theme_action == "static") {
+            this.events.publish('user:theme_color', data['user'].theme_color);
+          }
         } else {
-          this.alertshow("server connection error");
+          this.alertshow("Server connection error");
         }
       }, 
       error => {
@@ -79,10 +81,13 @@ export class SettingsPage implements OnInit {
         this.swipe = data['user'].swipe;
         this.theme_action = data['user'].theme_action;
         this.theme_color = data['user'].theme_color;
-        this.events.publish('user:theme_color', this.theme_color);
+        // this.events.publish('user:theme_color', this.theme_color);
+        if (this.theme_action == "static") {
+          this.events.publish('user:theme_color', data['user'].theme_color);
+        }
         this.events.publish('swipe', this.swipe);
       } else {
-        this.alertshow("server connection error");
+        this.alertshow("Server connection error");
       }
     }, 
     error => {

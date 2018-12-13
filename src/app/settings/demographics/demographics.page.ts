@@ -1034,7 +1034,7 @@ export class DemographicsPage implements OnInit {
         this.gender = data['user'].gender;
 
       } else {
-        this.alertshow("server connection error");
+        this.alertshow("Server connection error");
       }
     }, 
     error => {

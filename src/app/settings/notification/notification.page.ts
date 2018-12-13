@@ -56,7 +56,7 @@ export class NotificationPage implements OnInit {
         this.start_time = data['user'].start_time;
         this.end_time = data['user'].end_time;
       } else {
-        this.alertshow("server connection error");
+        this.alertshow("Server connection error");
       }
     }, 
     error => {

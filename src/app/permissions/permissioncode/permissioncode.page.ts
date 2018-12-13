@@ -41,7 +41,7 @@ export class PermissioncodePage implements OnInit {
         // this.question = data['question'].questions;
         this.permission_code = data['code'];
       } else {
-        this.alertshow("server connection error");
+        this.alertshow("Server connection error");
       }
     }, 
     error => {
@@ -60,7 +60,7 @@ export class PermissioncodePage implements OnInit {
         // this.question = data['question'].questions;
         this.permission_code = data['code'];
       } else {
-        this.alertshow("server connection error");
+        this.alertshow("Server connection error");
       }
     }, 
     error => {

@@ -29,6 +29,20 @@ export class ForgotpassPage implements OnInit {
     } else {
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
+
+      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/forgotpass?email='+this.email, {headers: headers}).subscribe(data => {
+        console.log(data);
+        if (data['result'] == 'success' ) {
+
+          this.router.navigateByUrl("/loginpage");
+        }
+        else {
+          this.alertshow("Email is not exist");
+        }
+      }, 
+      error => {
+      console.log(error);
+      })     
     }
   }
 
