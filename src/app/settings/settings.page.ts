@@ -21,6 +21,7 @@ export class SettingsPage implements OnInit {
   theme_action: string;
   theme_color: string;
   email: string;
+  now: any;
 
   constructor(
     public router: Router, 
@@ -30,9 +31,9 @@ export class SettingsPage implements OnInit {
     public events: Events,
     private alertCtrl: AlertController,  
   ) { 
-    this.swipe = "enable";
-    this.theme_action= "static";
-    this.theme_color = "light";
+    this.swipe = "";
+    this.theme_action= "";
+    this.theme_color = "";
   }
 
   ngOnInit() {
@@ -72,7 +73,7 @@ export class SettingsPage implements OnInit {
       "theme_action": this.theme_action,
       "theme_color": this.theme_color
     };
-
+    this.now = new Date();
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/update_theme_setting', this.setting, {headers: headers}).subscribe(data => {
@@ -84,6 +85,19 @@ export class SettingsPage implements OnInit {
         // this.events.publish('user:theme_color', this.theme_color);
         if (this.theme_action == "static") {
           this.events.publish('user:theme_color', data['user'].theme_color);
+        } else {
+          if (this.now.getHours() > 18 ) {
+            // console.log("evening");
+            if (this.theme_color == 'light' ) {
+              this.events.publish('user:theme_color', "dark");
+            }
+          }
+          else {
+            // console.log("afternoon"); 
+            if (this.theme_color == 'dark' ) {
+            this.events.publish('user:theme_color', "light");
+            }
+          }
         }
         this.events.publish('swipe', this.swipe);
       } else {
@@ -105,5 +119,9 @@ export class SettingsPage implements OnInit {
       ]
     });
     await alert.present();
+  }
+
+  signout() {
+    this.router.navigateByUrl("/loginpage");
   }
 }
