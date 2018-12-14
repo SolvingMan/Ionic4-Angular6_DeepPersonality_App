@@ -67,7 +67,7 @@ export class AnswerPage implements OnInit {
 
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
-      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/start_question?email='+this.email+'&question_id='+this.question_id, {headers: headers}).subscribe(data => {
+      this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/start_question?email='+this.email+'&question_id='+this.question_id, {headers: headers}).subscribe(data => {
         console.log(data);
         if (data['result'] == 'success') {
           this.question = data['question'].questions;
@@ -93,7 +93,7 @@ export class AnswerPage implements OnInit {
               const headers = new HttpHeaders();
               headers.set('Content-Type', 'application/json');
               this.loading = true;
-              this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer='+this.answer, {headers: headers}).subscribe(data => {
+              this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer='+this.answer, {headers: headers}).subscribe(data => {
                 console.log(data);
                 if (data['result'] == 'success') {
                   this.question = data['question'].questions
@@ -128,7 +128,7 @@ export class AnswerPage implements OnInit {
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
       this.loading = true;
-      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer=neither', {headers: headers}).subscribe(data => {
+      this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/next_question?email='+this.email+'&question_id='+this.question_id+'&answer=neither', {headers: headers}).subscribe(data => {
         console.log(data);
         if (data['result'] == 'success') {
           this.question = data['question'].questions

@@ -47,7 +47,7 @@ export class RevokepermissionPage implements OnInit {
 
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_handshakes?email=' + this.email, { headers: headers }).subscribe(data => {
+    this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/get_handshakes?email=' + this.email, { headers: headers }).subscribe(data => {
       console.log(data);
       if (data['result'] == 'successful') {
         this.all_handshake = data['data'];
@@ -74,7 +74,7 @@ export class RevokepermissionPage implements OnInit {
     if (triat !== undefined) {
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
-      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/delete_compare_traits?email=' + this.email + '&compare_email=' + this.all_handshake[index].email + '&delete_trait=' + triat, { headers: headers }).subscribe(data => {
+      this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/delete_compare_traits?email=' + this.email + '&compare_email=' + this.all_handshake[index].email + '&delete_trait=' + triat, { headers: headers }).subscribe(data => {
       console.log(data);
         if (data['result'] == 'successful') {
           // this.refresh = this.all_handshake;

@@ -1041,7 +1041,7 @@ constructor(
         };
         const headers = new HttpHeaders();
         headers.set('Content-Type', 'application/json');
-        this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/update_demographics',this.demographics, {headers: headers}).subscribe(data => {
+        this.http.post('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/update_demographics',this.demographics, {headers: headers}).subscribe(data => {
             console.log(data);
             if (data['result'] == 'success' ) {
                 this.router.navigateByUrl("tab/(question:question)")

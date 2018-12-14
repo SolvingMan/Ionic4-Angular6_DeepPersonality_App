@@ -30,7 +30,7 @@ export class ForgotpassPage implements OnInit {
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
 
-      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/forgotpass?email='+this.email, {headers: headers}).subscribe(data => {
+      this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/forgotpass?email='+this.email, {headers: headers}).subscribe(data => {
         console.log(data);
         if (data['result'] == 'success' ) {
 

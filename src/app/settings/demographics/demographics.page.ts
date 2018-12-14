@@ -1025,7 +1025,7 @@ export class DemographicsPage implements OnInit {
 
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_user_info?email='+this.email, {headers: headers}).subscribe(data => {
+    this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/get_user_info?email='+this.email, {headers: headers}).subscribe(data => {
       console.log(data);
       if (data['result'] == 'success') {
         this.selected_age = data['user'].age;
@@ -1051,7 +1051,7 @@ export class DemographicsPage implements OnInit {
     };
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/update_demographics',this.demographics, {headers: headers}).subscribe(data => {
+    this.http.post('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/update_demographics',this.demographics, {headers: headers}).subscribe(data => {
         console.log(data);
         if (data['result'] == 'success' ) {
             // this.router.navigateByUrl("tab/(question:question)")

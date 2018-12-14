@@ -35,7 +35,7 @@ export class PermissioncodePage implements OnInit {
     });
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_permission_code?email='+this.email, {headers: headers}).subscribe(data => {
+    this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/get_permission_code?email='+this.email, {headers: headers}).subscribe(data => {
       // console.log(data);
       if (data['result'] == 'successful') {
         // this.question = data['question'].questions;
@@ -54,7 +54,7 @@ export class PermissioncodePage implements OnInit {
     this.alertshow("the connection will be deleted, do you want to continue?")
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/generate_code?email='+this.email, {headers: headers}).subscribe(data => {
+    this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/generate_code?email='+this.email, {headers: headers}).subscribe(data => {
       console.log(data);
       if (data['result'] == 'successful') {
         // this.question = data['question'].questions;

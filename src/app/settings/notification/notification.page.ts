@@ -46,7 +46,7 @@ export class NotificationPage implements OnInit {
 
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_user_info?email='+this.email, {headers: headers}).subscribe(data => {
+    this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/get_user_info?email='+this.email, {headers: headers}).subscribe(data => {
       console.log(data);
       if (data['result'] == 'success') {
         this.notification_action = data['user'].notification_action;
@@ -76,7 +76,7 @@ export class NotificationPage implements OnInit {
     };
 
     const headers = new HttpHeaders();
-    this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/update_notification_setting',this.notification, {headers: headers}).subscribe(data => {
+    this.http.post('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/update_notification_setting',this.notification, {headers: headers}).subscribe(data => {
         console.log(data);
         if (data['result'] == 'success' ) {
           this.userData.setbatch_size(data['updated_user'].batch_size);

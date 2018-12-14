@@ -54,7 +54,7 @@ export class LoginpagePage implements OnInit {
   
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
-      this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/user/login', this.user, {headers: headers}).subscribe(data => {
+      this.http.post('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/user/login', this.user, {headers: headers}).subscribe(data => {
       console.log(data);
         if (data['result'] == 'successful') {
           this.events.publish('user:theme_color', data['data'].theme_color);
@@ -108,7 +108,7 @@ export class LoginpagePage implements OnInit {
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
       console.log(this.google_login_email);
-      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_user_info?&email='+this.google_login_email, {headers: headers}).subscribe(data => {
+      this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/get_user_info?&email='+this.google_login_email, {headers: headers}).subscribe(data => {
       console.log(data);
         if (data['result'] == 'success') {
             //  sign in authentication  
@@ -128,7 +128,7 @@ export class LoginpagePage implements OnInit {
         }
         const headers = new HttpHeaders();
         headers.set('Content-Type', 'application/json');
-        this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/user/signup',this.user, {headers: headers}).subscribe(data => {
+        this.http.post('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/user/signup',this.user, {headers: headers}).subscribe(data => {
             console.log(data);
             if (data['result'] == 'success' ) {
               this.userData.setUsername(data['data'].email);

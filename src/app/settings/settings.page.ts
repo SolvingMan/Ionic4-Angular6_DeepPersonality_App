@@ -48,7 +48,7 @@ export class SettingsPage implements OnInit {
 
     const headers = new HttpHeaders();
       headers.set('Content-Type', 'application/json');
-      this.http.get('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/get_user_info?email='+this.email, {headers: headers}).subscribe(data => {
+      this.http.get('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/get_user_info?email='+this.email, {headers: headers}).subscribe(data => {
         console.log(data);
         if (data['result'] == 'success') {
           this.swipe = data['user'].swipe;
@@ -76,7 +76,7 @@ export class SettingsPage implements OnInit {
     this.now = new Date();
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    this.http.post('https://cors-anywhere.herokuapp.com/http://onemoretest.co/api/update_theme_setting', this.setting, {headers: headers}).subscribe(data => {
+    this.http.post('https://cors-anywhere.herokuapp.com/http://www.deepperson.net/api/update_theme_setting', this.setting, {headers: headers}).subscribe(data => {
       console.log(data);
       if (data['result'] == 'success') {
         this.swipe = data['user'].swipe;
